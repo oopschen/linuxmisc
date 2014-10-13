@@ -4,6 +4,7 @@
   
 ### Prerequirement  
 * xft  
+* xsetroot
   
 ### 字体  
 [SourceCodePro][sourceCodePro]  
