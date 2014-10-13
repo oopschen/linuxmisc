@@ -1,0 +1,61 @@
+" vundle setup
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/Valloric/YouCompleteMe.git'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+call vundle#end()
+filetype plugin indent on
+
+" basic conf
+set number
+syntax on
+set expandtab
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set autoindent
+set smartindent
+
+set history=128
+set autoread
+set cmdheight=1
+set hlsearch 
+set magic
+set incsearch
+set laststatus=2
+set fileencodings=utf-8,gbk,gb2312
+
+"filetype on
+"filetype indent on
+set t_Co=256
+set timeoutlen=700
+set pastetoggle=<F12>
+set ignorecase
+set smartcase
+" end
+
+" color
+let g:solarized_termcolors=256
+set background=light
+colorscheme solarized
+"colorscheme jellybeans
+" end
+
+" set bundle
+" ctrlp
+let g:ctrlp_working_path_mode = "a"
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" ycm
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
+let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsEditSplit="vertical"
