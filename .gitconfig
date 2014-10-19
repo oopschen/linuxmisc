@@ -1,0 +1,15 @@
+[user]
+	email = linxray@gmail.com
+	name = Ray
+[push]
+	default = simple
+[color]
+	ui = auto
+
+[pretty]
+  tree = %C(auto) %h %d %C(blue) %s %C(reset)BY %cn [%cr]
+
+[alias]
+  lg = log --color --pretty=tree --graph 
+  st = status
+  co = commit
