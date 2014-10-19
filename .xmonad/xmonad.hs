@@ -33,6 +33,7 @@ import XMonad.Layout.GridVariants
 -- prompt
 import XMonad.Prompt
 import XMonad.Prompt.Shell
+import XMonad.Prompt.Window
 import XMonad.Hooks.SetWMName
 import XMonad.Util.Run(unsafeSpawn)
 import XMonad.Util.Run(safeSpawnProg)
@@ -66,11 +67,13 @@ myXPConfig = defaultXPConfig {
           position = Top,
           height = 23,
           promptBorderWidth=0,
-          historySize = 10000
+          historySize = 10000,
+          autoComplete = Just 500000
         }
 
 myKeys = [ 
         ("M-r", shellPrompt myXPConfig)
+        , ("M-/", windowPromptGoto myXPConfig)
         ] 
 
 myXmonadConfig = defaultConfig {
