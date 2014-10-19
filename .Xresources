@@ -9,11 +9,8 @@ URxvt.scrollBar: false
 URxvt.scrollstyle: plain
 URxvt.font: xft:Source Code Pro:size=13, xft:WenQuanYi Zen Hei Mono:size=13
 URxvt.boldFont: xft:Source Code Pro:size=13, xft:WenQuanYi Zen Hei Mono:size=13
-URxvt.saveLines: 8192
 URxvt.termName: rxvt-unicode
-urxvt.saveLines: 20000
-
-! urxvt url click
+URxvt.saveLines: 20000
 URxvt.foreground: #FFFFFF
 URxvt.background: #000000
 URxvt.cursorColor: #4D90F8
