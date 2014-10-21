@@ -1,0 +1,3 @@
+config_wlp3s0="dhcp"
+dns_servers_wlp3s0="114.114.114.114 8.8.8.8"
+dhcp_wlp3s0="nodns"
