@@ -7,6 +7,7 @@ Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/Valloric/YouCompleteMe.git'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'fatih/vim-go'
 call vundle#end()
 filetype plugin indent on
 
