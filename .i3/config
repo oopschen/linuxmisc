@@ -188,16 +188,17 @@ new_float none
 hide_edge_borders horizontal
 focus_follows_mouse no
 client.focused #81bd00 #285577 #ffffff #2e9ef4
+for_window [class="(?i)urxvt"] fullscreen
 
 # assign window 2 workspace
-## w1 web: chrome
-assign [class="(?i).*chrome.*"] 1
-## w2 terminal: urxvt
-assign [class="(?i)urxvt"] 2
-## w3 video: mpv
-assign [class="(?i)mpv"] 3
-## w4 ide: idea
-assign [class="(?i)jetbrains-idea-ce"] 4
+## w1 terminal: urxvt
+assign [class="(?i)urxvt"] 1
+## w2 web: chrome
+assign [class="(?i).*chrome.*"] 2
+## w3 ide: idea
+assign [class="(?i)jetbrains-idea-ce"] 3
+## w4 video: mpv
+assign [class="(?i)mpv"] 4
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
