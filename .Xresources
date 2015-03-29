@@ -20,11 +20,11 @@ URxvt.perl-ext: default,url-select,clipboard
 
 ! url-select
 URxvt.url-select.launcher: google-chrome-stable
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.Shift-Control-U: perl:url-select:select_next
 
 ! clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 *color0: #2E3436
 *color1: #a40000

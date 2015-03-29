@@ -7,6 +7,8 @@
 * xft  
 * xsetroot
 * [git complete scripts][gitcomplete]
+* dmenu
+* pango
   
 ### 字体  
 [SourceCodePro][sourceCodePro]  
@@ -15,5 +17,5 @@
 * tmux  
 * vim  
 * Xresource  
-* Xmonad
+* Xmonad/i3
 * xinit
