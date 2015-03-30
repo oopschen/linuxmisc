@@ -7,8 +7,9 @@
 * xft  
 * xsetroot
 * [git complete scripts][gitcomplete]
+#### i3
 * dmenu
-* pango
+* i3status
   
 ### 字体  
 [SourceCodePro][sourceCodePro]  
@@ -17,5 +18,5 @@
 * tmux  
 * vim  
 * Xresource  
-* Xmonad/i3
 * xinit
+* Xmonad/i3
