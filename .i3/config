@@ -194,6 +194,7 @@ focus_follows_mouse no
 client.focused #81bd00 #285577 #ffffff #2e9ef4
 for_window [class="(?i)urxvt"] fullscreen
 for_window [class="(?i)mpv"] fullscreen
+for_window [class="(?i).*chrome.*"] fullscreen
 
 # assign window 2 workspace
 ## w1 terminal: urxvt
