@@ -32,8 +32,7 @@ set $up i
 set $down k
 set $left j
 set $right l
-set $mod Mod1
-set $modo Mod4
+set $mod Mod4
 
 
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -133,12 +132,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# move foucused workspace to monitor
-bindsym $modo+Shift+$left move workspace to output left
-bindsym $modo+Shift+$right move workspace to output right
-bindsym $modo+Shift+$up move workspace to output up
-bindsym $modo+Shift+$down move workspace to output down
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -147,8 +140,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-msg exit"
 
 # screen saver
-bindsym $modo+Shift+y exec "xset +dpms && xset s on" 
-bindsym $modo+Shift+n exec "xset -dpms && xset s off" 
+bindsym $mod+Shift+y exec "xset +dpms && xset s on" 
+bindsym $mod+Shift+n exec "xset -dpms && xset s off" 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -214,7 +207,7 @@ assign [class="(?i)vuze"] 5
 bar {
     status_command i3status
     mode hide
-    modifier $modo
+    modifier ctrl
     position top
     tray_output none
     font pango:Source Code Pro 19px
