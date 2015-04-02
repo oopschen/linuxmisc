@@ -207,7 +207,7 @@ assign [class="(?i)vuze"] 5
 bar {
     status_command i3status
     mode hide
-    modifier ctrl
+    modifier Mod1
     position top
     tray_output none
     font pango:Source Code Pro 19px
