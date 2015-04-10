@@ -180,14 +180,13 @@ exec_always urxvt -e tmux -2 attach
 default_orientation auto
 workspace_layout stacking
 workspace_auto_back_and_forth yes
-new_window pixel 2
-new_float none
-hide_edge_borders horizontal
+new_float pixel 1
+new_window none
+hide_edge_borders vertical
 focus_follows_mouse no
 client.focused #81bd00 #285577 #ffffff #2e9ef4
 for_window [class="(?i)urxvt"] fullscreen
 for_window [class="(?i)mpv"] fullscreen
-for_window [class="(?i).*chrome.*"] fullscreen
 
 # assign window 2 workspace
 ## w1 terminal: urxvt
