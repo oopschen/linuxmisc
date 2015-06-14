@@ -60,3 +60,13 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsEditSplit="vertical"
+
+" ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]((\.(git|hg|svn))|node_modules|build|bower_components)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
