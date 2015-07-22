@@ -199,6 +199,8 @@ assign [class="(?i)jetbrains-idea-ce"] 3
 assign [class="(?i)mpv"] 4
 ## w5 download: vuze
 assign [class="(?i)vuze"] 5
+## w6 remote desktop
+assign [class="(?i)rdesktop"] 6
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
