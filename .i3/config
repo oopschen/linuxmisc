@@ -1,7 +1,7 @@
 # i3 config file (v4)
 # i3 config modified by Ray
-# @since 1.0
-# @date 2015.03.28
+# @since 1.1
+# @date 2015.08.01
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
@@ -168,8 +168,8 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# monitors
+bindsym $mod+Shift+z move workspace to output VGA1
+bindsym $mod+Shift+x move workspace to output LVDS1
 
 # auto startups
 exec fcitx-autostart
