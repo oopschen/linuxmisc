@@ -16,15 +16,17 @@ URxvt.background: #000000
 URxvt.cursorColor: #4D90F8
 
 ! urxvt shortcut
-URxvt.perl-ext: default,url-select,clipboard
+URxvt.perl-ext-common: default,keyboard-select,url-select,clipboard
+URxvt.keysym.C-S-S: perl:keyboard-select:activate
 
 ! url-select
 URxvt.url-select.launcher: google-chrome-stable
-URxvt.keysym.Shift-Control-U: perl:url-select:select_next
+URxvt.keysym.C-S-U: perl:url-select:select_next
+URxvt.url-select.autocopy: true
 
 ! clipboard
-URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.C-S-C: perl:clipboard:copy
+URxvt.keysym.C-S-V: perl:clipboard:paste
 
 *color0: #2E3436
 *color1: #a40000
