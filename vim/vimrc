@@ -3,6 +3,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/Valloric/YouCompleteMe.git'
 Plugin 'SirVer/ultisnips'
@@ -11,8 +12,8 @@ Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'https://github.com/mxw/vim-jsx.git'
+Plugin 'git://github.com/altercation/vim-colors-solarized.git'
 call vundle#end()
-filetype plugin indent on
 
 " basic conf
 set number
@@ -34,8 +35,7 @@ set incsearch
 set laststatus=2
 set fileencodings=utf-8,gbk,gb2312
 
-"filetype on
-"filetype indent on
+filetype plugin indent on
 set t_Co=256
 set timeoutlen=700
 set pastetoggle=<F12>
@@ -45,6 +45,7 @@ set smartcase
 
 " color
 let g:solarized_termcolors=256
+syntax enable
 set background=light
 colorscheme solarized
 "colorscheme jellybeans
@@ -59,6 +60,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_complete_in_comments = 1
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
