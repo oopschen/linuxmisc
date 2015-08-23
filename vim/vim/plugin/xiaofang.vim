@@ -52,12 +52,6 @@ set tabpagemax=7
 " search and replace
 :vnoremap sr y:%s/<C-R>"//g<LEFT><LEFT> 
 
-" normal mode paste from clipboard
-:nmap cp "+p
-
-" visual mode copy to clipboard
-:vmap cc "+y
-
 " map end
 
 " status line
