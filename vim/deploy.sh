@@ -20,7 +20,7 @@ cp "${srcvimrcfile}" "${vimrcfile}"
 echo "deploy .vimrc done"
 
 # update .vim
-cp -r -u ${srcvimdir}/* ${vimdir}
+mkdir -p ${vimdir} && cp -r -u ${srcvimdir}/* ${vimdir}
 echo "update .vim done"
 
 # 
