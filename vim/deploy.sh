@@ -15,7 +15,7 @@ vundlefile=${bundledir}/Vundle.vim
 ycm_lib_dir=${vimdir}/ycm_build
 
 # back up vimrc and override it
-mv "${vimrcfile}" "${vimrcfile}.bak"
+test -f ${vimrcfile} && "${vimrcfile}" "${vimrcfile}.bak"
 cp "${srcvimrcfile}" "${vimrcfile}"
 echo "deploy .vimrc done"
 
