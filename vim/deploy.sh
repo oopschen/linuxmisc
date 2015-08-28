@@ -37,14 +37,16 @@ fi
 
 
 # YCM plugin config
-rm -rf ${ycm_lib_dir}
-mkdir ${ycm_lib_dir}
-curdir=$(realpath $(pwd))
+if [ -d ${bundledir}/YouCompleteMe ]; then
+  rm -rf ${ycm_lib_dir}
+  mkdir ${ycm_lib_dir}
+  curdir=$(realpath $(pwd))
 
-cd ${ycm_lib_dir}
-cmake -D USE_SYSTEM_LIBCLANG=ON -G "Unix Makefiles" . ${bundledir}/YouCompleteMe/third_party/ycmd/cpp
-make ycm_support_libs
+  cd ${ycm_lib_dir}
+  cmake -D USE_SYSTEM_LIBCLANG=ON -G "Unix Makefiles" . ${bundledir}/YouCompleteMe/third_party/ycmd/cpp
+  make ycm_support_libs
 
-cd ${curdir}
+  cd ${curdir}
+fi
 
 # end
