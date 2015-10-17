@@ -6,6 +6,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/Valloric/YouCompleteMe.git'
+Plugin 'rdnetto/YCM-Generator'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'fatih/vim-go'
