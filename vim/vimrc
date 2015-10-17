@@ -13,6 +13,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'https://github.com/mxw/vim-jsx.git'
 Plugin 'git://github.com/altercation/vim-colors-solarized.git'
+Plugin 'rust-lang/rust.vim'
 call vundle#end()
 
 " basic conf
@@ -70,6 +71,8 @@ let g:UltiSnipsEditSplit="vertical"
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*/CMakeFiles/*,**/CMakeCache.txt,*.cmake " cmake
+set wildignore+=**/target
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]((\.(git|hg|svn))|node_modules|build|bower_components)$',
@@ -89,9 +92,6 @@ let g:javascript_conceal_static     = "•"
 let g:javascript_conceal_super      = "Ω"
 
 let g:javascript_enable_domhtmlcss = 1
-
-" vim-jsx
-let g:jsx_ext_required = 0
 
 " emmet 
 let g:user_emmet_install_global = 0
