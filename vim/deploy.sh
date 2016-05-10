@@ -44,7 +44,7 @@ if [ -d ${bundledir}/YouCompleteMe ]; then
 
   cd ${ycm_lib_dir}
   cmake -D USE_SYSTEM_LIBCLANG=ON -G "Unix Makefiles" . ${bundledir}/YouCompleteMe/third_party/ycmd/cpp
-  make ycm_support_libs
+  cmake --build . --target ycm_core --config Release
 
   cd ${curdir}
 fi
