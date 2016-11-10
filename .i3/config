@@ -168,13 +168,13 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-bindsym $mod+Shift+z move workspace to output VGA1
+bindsym $mod+Shift+z move workspace to output DP1
 bindsym $mod+Shift+x move workspace to output LVDS1
 
 # auto startups
 exec fcitx-autostart
 exec_always google-chrome-stable
-exec_always urxvt -e tmux -2 attach
+exec_always urxvt -ls -e tmuxp load normal
 
 # workspace
 default_orientation auto
