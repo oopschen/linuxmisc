@@ -4,16 +4,16 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/kien/ctrlp.vim.git'
-Plugin 'https://github.com/Valloric/YouCompleteMe.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'fatih/vim-go'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
-Plugin 'https://github.com/mxw/vim-jsx.git'
-Plugin 'git://github.com/altercation/vim-colors-solarized.git'
+Plugin 'mxw/vim-jsx'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'rust-lang/rust.vim'
 call vundle#end()
 
