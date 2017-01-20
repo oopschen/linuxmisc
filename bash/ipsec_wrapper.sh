@@ -25,7 +25,7 @@ function down_connection {
   interface=$2
   ipsec unroute $conn_name
   ipsec down $conn_name
-  echo -e "nameserver\t114.114.114.114\nnameserver\t114.114.114.115" | resolvconf -a ${interface:=eth0}
+  echo -e "nameserver\t114.114.114.114\nnameserver\t114.114.115.115" | resolvconf -a ${interface:=eth0}
 }
 
 function list_connection {
