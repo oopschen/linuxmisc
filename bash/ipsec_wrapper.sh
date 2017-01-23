@@ -34,7 +34,7 @@ function list_connection {
 
 function parse_nydus {
   input_file=$1
-  lines=$(grep "<td>" $input_file| sed -e '1,7d' | grep -viE "yes|running" | tr -d '[:space:]' | sed -re 's@(/[^<]+</td>)(<td>)@\1\n\2@ig' | grep -i  "ikev2" |  sed -re 's@<td>\[.+\]([^<]+)</td><td>([^<]+)</td>.*@\1,\2@ig' | tr -s '[:upper:]' '[:lower:]')
+  lines=$(grep "<td>" $input_file| sed -e '1,7d' | grep -viE "yes|running" | tr -d '[:space:]' | sed -re 's@(/[^<]+</td>)(<td>)@\1\n\2@ig' |  grep -iv "trial" | grep -i  "ikev2" |  sed -re 's@<td>\[.+\]([^<]+)</td><td>([^<]+)</td>.*@\1,\2@ig' | tr -s '[:upper:]' '[:lower:]')
   for l in $lines
   do
     cname=${l%,*}
