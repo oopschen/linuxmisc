@@ -14,6 +14,7 @@ URxvt.saveLines: 20000
 URxvt.foreground: #FFFFFF
 URxvt.background: #000000
 URxvt.cursorColor: #4D90F8
+URxvt.preeditType: Root
 
 ! urxvt shortcut
 URxvt.perl-ext-common: default,keyboard-select,url-select,clipboard
