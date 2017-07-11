@@ -172,9 +172,10 @@ bindsym $mod+Shift+z move workspace to output DP1
 bindsym $mod+Shift+x move workspace to output LVDS1
 
 # auto startups
-exec fcitx-autostart
-exec_always google-chrome-stable
-exec_always urxvtd --quiet --opendisplay --fork && urxvtc -e tmuxp load normal
+exec --no-startup-id fcitx-autostart
+exec --no-startup-id google-chrome-stable
+exec --no-startup-id urxvtd --quiet --opendisplay --fork && urxvtc -e tmuxp load normal
+exec --no-startup-id dunst
 
 # workspace
 default_orientation auto
