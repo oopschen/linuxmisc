@@ -1,0 +1,3 @@
+# usb 
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[cde]?", RUN+="/bin/mkdir -p /mnt/usb/%k", RUN+="/bin/chown :usb /mnt/usb/%k", RUN+="/bin/mount -o umask=0002,gid=usb,iocharset=utf8 /dev/%k /mnt/usb/%k"
+ACTION=="remove", SUBSYSTEM=="block", KERNEL=="sd[cde]?", RUN+="/bin/rmdir /mnt/usb/%k"

@@ -195,7 +195,7 @@ assign [class="(?i)urxvt"] 1
 ## w2 web: chrome
 assign [class="(?i).*chrome.*"] 2
 ## w3 ide: idea
-assign [class="(?i)jetbrains-idea-ce"] 3
+assign [class="(?i)jetbrains.*"] 3
 ## w4 video: mpv
 assign [class="(?i)mpv"] 4
 ## w5 download: vuze
@@ -204,6 +204,9 @@ assign [class="(?i)vuze"] 5
 assign [class="(?i)rdesktop"] 6
 ## w7 virtual host
 assign [class="(?i)qemu.*"] 7
+assign [class="(?i)VirtualBox.*"] 7
+# spoon 
+assign [title="(?i)spoon.*"] 3
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
