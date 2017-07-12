@@ -222,8 +222,12 @@ bar {
     strip_workspace_numbers yes
     status_command i3status --config ~/.i3/i3status.conf
     colors {
-      background #FFFFFF
-      statusline #000000
+      background #333333
+      statusline #FFFFFF
       separator #3079ed
+      focused_workspace #3079ed #3079ed #FFFFFF
+      urgent_workspace #ebccd1 #f2dede #a94442
+      inactive_workspace  #656565 #656565 #F1EFFA
+      active_workspace #656565 #656565 #5FF541
     }
 }
