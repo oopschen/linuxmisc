@@ -171,6 +171,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+z move workspace to output DP1
 bindsym $mod+Shift+x move workspace to output LVDS1
 
+bindsym $mod+t floating toggle
+
 # auto startups
 exec --no-startup-id fcitx-autostart
 exec --no-startup-id google-chrome-stable
@@ -186,8 +188,16 @@ new_window none
 hide_edge_borders vertical
 focus_follows_mouse no
 client.focused #81bd00 #285577 #ffffff #2e9ef4
-for_window [class="(?i)urxvt"] fullscreen
+
+mouse_warping output
+popup_during_fullscreen leave_fullscreen
+floating_minimum_size 150 x 300
+floating_maximum_size 760 x 800
+force_focus_wrapping yes
+
+
 for_window [class="(?i)mpv"] fullscreen
+for_window [class="Dia" window_role="toolbox_window"] floating enable, resize set 200 600
 
 # assign window 2 workspace
 ## w1 terminal: urxvt
@@ -207,6 +217,7 @@ assign [class="(?i)qemu.*"] 7
 assign [class="(?i)VirtualBox.*"] 7
 # spoon 
 assign [title="(?i)spoon.*"] 3
+assign [title="(?i)dia"] 8
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -231,6 +242,3 @@ bar {
       active_workspace #656565 #656565 #5FF541
     }
 }
-
-mouse_warping output
-popup_during_fullscreen leave_fullscreen
