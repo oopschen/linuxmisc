@@ -45,6 +45,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-airline/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'shime/vim-livedown'
 call vundle#end()
 filetype plugin indent on
 
@@ -99,3 +100,6 @@ autocmd FileType html,css,markdown EmmetInstall
 " vim-airline
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='tomorrow'
+
+" markdown preview
+let g:livedown_browser = "google-chrome-stable"
