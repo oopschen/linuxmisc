@@ -2,7 +2,7 @@
 
 
 function print_help {
-  echo -e "avail command list:\n\t load(ld): load a file\n\t list(ls): list avail configuration\n\t exit(e): exit this commandline\n\t help|h: show this help"
+  echo -e "avail command list:\n\t load(ld) [number|name]: load a file\n\t list(ls): list avail configuration\n\t exit(e): exit this commandline\n\t help|h: show this help"
 }
 
 
@@ -12,7 +12,8 @@ isStop=0
 while [[ "0" == "$isStop" ]]; do
   echo -e "Input command: "
   read -r cmd
-  case $cmd in 
+  cmdtr=$(echo $cmd | tr -s '')
+  case $(echo "$cmdtr" | cut -d ' ' -z -f1) in 
     help|h)
       print_help
       ;;
@@ -29,8 +30,7 @@ while [[ "0" == "$isStop" ]]; do
       ;;
 
     load|ld)
-      echo -e "Input configuration name or index: "
-      read -r inFile
+      inFile=$(echo "$cmdtr" | cut -d ' ' -z -f2)
       cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig')
       if [ -f ~/.tmuxp/$inFile.yaml ]; then
         tmuxp load $inFile
