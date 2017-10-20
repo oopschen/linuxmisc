@@ -33,19 +33,6 @@ endif
 :inoremap `` `
 " end
 
-" map tab key
-set tabpagemax=7
-:nnoremap t1 1gt
-:nnoremap t2 2gt
-:nnoremap t3 3gt
-:nnoremap t4 4gt
-:nnoremap t5 5gt
-:nnoremap t6 6gt
-:nnoremap t7 7gt
-:nnoremap tn :tabnext<CR>
-:nnoremap tp :tabprevious<CR>
-:nnoremap tm :tabmove<CR>
-
 " map search selected text
 :vnoremap ss y:let @/=@*<CR>
 
@@ -54,9 +41,6 @@ set tabpagemax=7
 
 " map end
 
-" status line
-set statusline=%-(%l/%L%)\ %-y%-m\ %-F\ %-R
-
 " search in a range
 function g:SSR(start, end, pattern)
   let @/ = "\\%>" . a:start . "l\\%<" . a:end . "l" . a:pattern
@@ -64,3 +48,8 @@ function g:SSR(start, end, pattern)
 endf
 
 :nnoremap ssr :call g:SSR(,, "")<LEFT><LEFT>
+
+" fzf 
+:map <c-s-o> :Files<CR>
+:map <c-s-n> :Ag<CR>
+:map <c-s-b> :Buffers<CR>
