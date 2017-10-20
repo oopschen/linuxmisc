@@ -24,30 +24,33 @@ set pastetoggle=<F12>
 set ignorecase
 set smartcase
 set fileformats=dos,unix,mac
+filetype indent plugin on 
 " end
 
 " vundle setup
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'fatih/vim-go'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mattn/emmet-vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'rust-lang/rust.vim'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-airline/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'shime/vim-livedown'
-call vundle#end()
-filetype plugin indent on
+call plug#begin()
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+
+Plug 'fatih/vim-go', { 'for': 'go'}
+
+Plug 'pangloss/vim-javascript', { 'for': 'javascript'}
+Plug 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
+
+Plug 'rust-lang/rust.vim', { 'for': 'rust'}
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp', 'rust']}
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+
+Plug 'shime/vim-livedown', { 'for': 'markdown'}
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+call plug#end()
 
 " color
 let g:solarized_termcolors=256
@@ -58,9 +61,6 @@ colorscheme solarized
 " end
 
 " set bundle
-" ctrlp
-let g:ctrlp_working_path_mode = "a"
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " ycm
 let g:ycm_key_list_select_completion=[]
@@ -68,7 +68,6 @@ let g:ycm_key_list_previous_completion=[]
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_complete_in_comments = 1
-let g:ycm_filetype_whitelist = { 'rust': 1, 'c': 1, 'cpp': 1, 'javascript': 1 }
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-e>"
@@ -76,18 +75,6 @@ let g:UltiSnipsListSnippets="<c-s-l>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-
-" ctrlp
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*/CMakeFiles/*,**/CMakeCache.txt,*.cmake " cmake
-set wildignore+=**/target
-
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]((\.(git|hg|svn))|node_modules|build|bower_components)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
