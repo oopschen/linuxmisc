@@ -50,6 +50,14 @@ endf
 :nnoremap ssr :call g:SSR(,, "")<LEFT><LEFT>
 
 " fzf 
-:map <c-s-o> :Files<CR>
-:map <c-s-n> :Ag<CR>
-:map <c-s-b> :Buffers<CR>
+let g:rg_command = '
+  \ rg --column --no-heading --ignore-case --follow --color "always" '
+
+command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+:map <C-o> :Files<CR>
+:map <C-n> :Rg<CR>
+:map <C-b> :Buffers<CR>
+
+" livedown
+nmap pm :LivedownToggle<CR>

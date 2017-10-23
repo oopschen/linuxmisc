@@ -46,7 +46,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp', 'rust']}
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
-Plug 'shime/vim-livedown', { 'for': 'markdown'}
+Plug 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -90,3 +90,5 @@ let g:airline_theme='tomorrow'
 
 " markdown preview
 let g:livedown_browser = "google-chrome-stable"
+
+
