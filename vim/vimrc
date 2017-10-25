@@ -23,7 +23,6 @@ set timeoutlen=700
 set pastetoggle=<F12>
 set ignorecase
 set smartcase
-set fileformats=dos,unix,mac
 filetype indent plugin on 
 " end
 
