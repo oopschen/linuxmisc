@@ -26,6 +26,9 @@ set smartcase
 filetype indent plugin on 
 " end
 
+" rpt setup
+set rtp+=~/.vim/plugged/vim-jsx/after/syntax/jsx.vim
+
 " vundle setup
 call plug#begin()
 Plug 'SirVer/ultisnips'
@@ -81,7 +84,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " emmet 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,markdown EmmetInstall
+autocmd FileType html,css,markdown,javascript EmmetInstall
 
 " vim-airline
 "let g:airline#extensions#tabline#enabled = 1
@@ -90,4 +93,6 @@ let g:airline_theme='tomorrow'
 " markdown preview
 let g:livedown_browser = "google-chrome-stable"
 
+" vim-jsx
+let g:jsx_ext_required = 0
 
