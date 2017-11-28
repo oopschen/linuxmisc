@@ -12,7 +12,7 @@ set smartindent
 set history=128
 set autoread
 set cmdheight=1
-set hlsearch 
+set hlsearch
 set magic
 set incsearch
 set laststatus=2
@@ -23,7 +23,8 @@ set timeoutlen=700
 set pastetoggle=<F12>
 set ignorecase
 set smartcase
-filetype indent plugin on 
+filetype indent plugin on
+set hidden
 " end
 
 " rpt setup
@@ -52,6 +53,8 @@ Plug 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " color
@@ -82,7 +85,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
 
-" emmet 
+" emmet
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,markdown,javascript EmmetInstall
 
@@ -96,3 +99,6 @@ let g:livedown_browser = "google-chrome-stable"
 " vim-jsx
 let g:jsx_ext_required = 0
 
+
+" editor config
+let g:EditorConfig_exclude_patterns = ['scp://.*']
