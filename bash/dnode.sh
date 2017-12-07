@@ -5,5 +5,6 @@ if [ ! -z "$NETN" ]; then
 fi
 
 docker run --rm -it -v `mktemp`:/tim:ro \
+  -v /etc/localtime:/etc/localtime:ro \
   -v $(pwd):/$(basename $(pwd)) -w /$(basename $(pwd)) \
   $NETOPTS $DNOPTS snode:8
