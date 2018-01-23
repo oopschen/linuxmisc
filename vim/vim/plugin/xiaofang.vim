@@ -1,11 +1,9 @@
 " Xiao Fang is a smart edit assistant girl with beauty and wise
 " feature list:
-"       1. auto complete [, ", ', \", \', (, <, {, </
-"       2. auto delete above symbole when pairs with or without body inside
 "
 "
 " Author: Chen Lei linxray@gmail.com
-" Last Change: 2013.04.27
+" Last Change: 2018.01.23
 "
 
 if exists("xiaofang")
@@ -14,30 +12,16 @@ endif
 
 " map begin
 
-:inoremap { {}<Left>
-:inoremap [ []<Left>
-:inoremap ( ()<Left>
-:inoremap " ""<Left>
-:inoremap ' ''<Left>
-:inoremap ` ``<Left>
-
-:inoremap {<ENTER> {<CR>}<UP><ESC>o
-:inoremap [<ENTER> [<CR>]<UP><ESC>o
-:inoremap (<ENTER> (<CR>)<UP><ESC>o
-
-:inoremap {{ {
-:inoremap [[ [
-:inoremap (( (
-:inoremap "" "
-:inoremap '' '
-:inoremap `` `
+:inoremap kk <ESC>
+:inoremap sss <ESC>:w<ENTER>
+:nnoremap qqqq :q!<ENTER>
 " end
 
 " map search selected text
 :vnoremap ss y:let @/=@*<CR>
 
 " search and replace
-:vnoremap sr y:%s/<C-R>"//g<LEFT><LEFT> 
+:vnoremap sr y:%s/<C-R>"//g<LEFT><LEFT>
 
 " map end
 
@@ -49,15 +33,21 @@ endf
 
 :nnoremap ssr :call g:SSR(,, "")<LEFT><LEFT>
 
-" fzf 
+" fzf
 let g:rg_command = '
-  \ rg --column --no-heading --ignore-case --follow --color "always" '
+  \ rg --column --no-heading -i -L --color "always" '
 
 command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-:map <C-o> :Files<CR>
-:map <C-n> :Rg<CR>
-:map <C-b> :Buffers<CR>
+:nmap <C-o> :Files<CR>
+:nmap <C-n> :Rg<CR>
+:nmap <C-b> :Buffers<CR>
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " livedown
 nmap pm :LivedownToggle<CR>
