@@ -53,6 +53,9 @@ setopt extendedglob
 DIRSTACKSIZE=7
 setopt autopushd pushdminus pushdsilent pushdtohome
 setopt autolist
+setopt appendhistory histignorealldups incappendhistory
+SAVEHIST=50
+HISTFILE=~/.zsh_history
 bindkey -v
 
 #alias
