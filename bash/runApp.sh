@@ -6,4 +6,4 @@ if [ 1 -gt $# ]; then
 fi
 
 hashVal=$(echo "$@-$(date +%Y%m%d%H%M%S)" | sha1sum -t)
-nohup $@ > /tmp/runApp-$1-${hashVal:0:10}.out 2>&1 &
+nohup $@ > /tmp/runApp${1//\//-}-${hashVal:0:10}.out 2>&1 &
