@@ -36,13 +36,6 @@ case $mode in
 	iptables -t nat -A $chainName -d 192.168.0.0/16 -j RETURN
 	iptables -t nat -A $chainName -d 224.0.0.0/4 -j RETURN
 	iptables -t nat -A $chainName -d 240.0.0.0/4 -j RETURN
-	iptables -t nat -A $chainName -d 101.224.0.0/13 -j RETURN
-	iptables -t nat -A $chainName -d 114.114.0.0/14 -j RETURN
-	iptables -t nat -A $chainName -d 183.128.0.0/11 -j RETURN
-	iptables -t nat -A $chainName -d 117.24.0.0/13 -j RETURN
-	iptables -t nat -A $chainName -d 61.144.0.0/14 -j RETURN
-	iptables -t nat -A $chainName -d 122.224.0.0/12 -j RETURN
-	iptables -t nat -A $chainName -d 140.205.0.0/16 -j RETURN
 
   # ignore ip in files
   ignoreFile=${basedir}/.shadowsocks-redir-ignore
