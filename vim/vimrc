@@ -1,3 +1,38 @@
+filetype off
+set nocompatible
+
+" rpt setup
+set rtp+=~/.vim/bundle/Vundle.vim
+
+" vundle setup
+call vundle#begin()
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'altercation/vim-colors-solarized'
+"Plugin 'dracula/vim'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'fatih/vim-go', { 'for': 'go'}
+
+Plugin 'pangloss/vim-javascript', { 'for': 'javascript'}
+Plugin 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
+Plugin 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
+
+Plugin 'rust-lang/rust.vim', { 'for': 'rust'}
+
+Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp', 'rust']}
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+
+Plugin 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}
+
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plugin 'junegunn/fzf.vim'
+
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'jiangmiao/auto-pairs'
+call vundle#end()
+
 " basic conf
 set number
 syntax on
@@ -30,37 +65,7 @@ set wrap
 set linebreak
 " end
 
-" rpt setup
 set rtp+=~/.vim/plugged/vim-jsx/after/syntax/jsx.vim
-
-" vundle setup
-call plug#begin()
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'altercation/vim-colors-solarized'
-"Plug 'dracula/vim'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-airline/vim-airline'
-
-Plug 'fatih/vim-go', { 'for': 'go'}
-
-Plug 'pangloss/vim-javascript', { 'for': 'javascript'}
-Plug 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
-
-Plug 'rust-lang/rust.vim', { 'for': 'rust'}
-
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp', 'rust']}
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-
-Plug 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'jiangmiao/auto-pairs'
-call plug#end()
 
 " color
 let g:solarized_termcolors=256
