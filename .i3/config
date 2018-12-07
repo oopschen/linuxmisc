@@ -174,7 +174,7 @@ bindsym $mod+Shift+x move workspace to output LVDS1
 bindsym $mod+Shift+t floating toggle
 bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
-bindsym $mod+t exec "st -f 'Source Code Pro:pixelsize=17:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
+bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=18:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
 
 # auto startups
 exec --no-startup-id dunst

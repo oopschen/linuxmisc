@@ -10,6 +10,11 @@
   tree = %C(auto) %h %d %C(blue) %s %C(reset)BY %cn [%cr]
 
 [alias]
-  lg = log --color --pretty=tree --graph 
+  lg = log --color --pretty=tree --graph
   st = status
-  co = commit
+  co = commit -m
+  pr = pull --rebase
+
+
+[credential "https://github.com"]
+	username = linxray@gmail.com
