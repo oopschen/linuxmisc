@@ -6,7 +6,7 @@ if [ "$#" -lt 1 ]; then
 fi
 
 basedir=$(dirname $0)
-cfgfile=/etc/shadowsocks-libev/shadowsocks.json
+cfgfile=${2:-/etc/shadowsocks-libev/shadowsocks.json}
 socksserver=$(grep '"server":' $cfgfile | sed -re 's/.*\s*:\s*"([^"]+)".*/\1/ig')
 localport=$(grep 'local_port' $cfgfile | sed -re 's/.*:\s*([^, ]+).*/\1/ig')
 echo -e "sever=$socksserver,localport=$localport,cfg=$cfgfile"
@@ -39,6 +39,7 @@ case $mode in
 
   # ignore ip in files
   ignoreFile=${basedir}/.shadowsocks-redir-ignore
+  echo "check ignore file: $ignoreFile"
   if [ -f "$ignoreFile" ]; then
     echo "ignoring ips:  $(wc -l $ignoreFile)"
     for line in $(cat $ignoreFile)

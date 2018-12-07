@@ -56,7 +56,7 @@ bindkey -v
 
 #alias
 # thanks to z plugin: alias ds='dirs -v'
-alias ll='ls -alh'
+alias ll='ls -lh --color'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'

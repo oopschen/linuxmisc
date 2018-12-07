@@ -174,15 +174,13 @@ bindsym $mod+Shift+x move workspace to output LVDS1
 bindsym $mod+Shift+t floating toggle
 bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
-bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=18:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
 
 # auto startups
 exec --no-startup-id dunst
 exec --no-startup-id fcitx-autostart
 exec --no-startup-id google-chrome-stable
-#exec --no-startup-id urxvtd --quiet --opendisplay --fork && urxvtc -e tmuxp load normal
-#exec --no-startup-id st -f "Source Code Pro:size=13" -e tmuxp load normal
 exec --no-startup-id thunderbird
+exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=18:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 
 # workspace
 default_orientation auto
@@ -216,7 +214,6 @@ assign [class="(?i)jetbrains.*"] 3
 assign [class="(?i)mpv"] 4
 ## w5 download: vuze
 assign [class="(?i)vuze"] 5
-assign [class="(?i)thunderbird"] 5
 ## w6 remote desktop
 assign [class="(?i)rdesktop"] 6
 ## w7 virtual host
@@ -233,10 +230,9 @@ assign [title="(?i)dia"] 8
 bar {
     status_command i3status
     mode hide
-    modifier Mod1
-    position top
+    position bottom
     tray_output none
-    font pango:Source Code Pro 21px
+    font pango:Source Code Pro 16px
     workspace_buttons yes
     strip_workspace_numbers yes
     status_command i3status --config ~/.i3/i3status.conf
