@@ -10,31 +10,27 @@ srcvimrcfile="${srcdir}/vimrc"
 vimdir="${homedir}/.vim"
 srcvimdir="${srcdir}/vim"
 bundledir="${vimdir}/bundle"
-vundlefile=${bundledir}/Vundle.vim
 
 ycm_lib_dir=${vimdir}/ycm_build
 
 # back up vimrc and override it
 test -f ${vimrcfile} && "${vimrcfile}" "${vimrcfile}.bak"
-cp "${srcvimrcfile}" "${vimrcfile}"
+ln -sv "${srcvimrcfile}" "${vimrcfile}"
 echo "deploy .vimrc done"
 
 # update .vim
-mkdir -p ${vimdir} && cp -r -u ${srcvimdir}/* ${vimdir}
+mkdir -p ${vimdir} && ln -sv ${srcvimdir}/* ${vimdir}
 echo "update .vim done"
 
-# 
+#
 mkdir -pv ${bundledir}
 
-# install vundle
-# vundle install and update
-if [ ! -d ${vundlefile} ]; then
-  git clone https://github.com/gmarik/Vundle.vim.git ${vundlefile}
-  vim +PluginInstall +qall
-else
-  vim +PluginUpdate +qall
+# install plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if [ 0 -eq $? ]; then
+  vim +PlugInstall +qall
 fi
-
 
 # YCM plugin config
 if [ -d ${bundledir}/YouCompleteMe ]; then

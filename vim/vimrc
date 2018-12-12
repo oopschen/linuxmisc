@@ -1,37 +1,31 @@
-filetype off
-set nocompatible
+" plug manager 
+call plug#begin('~/.vim/plugged')
 
-" rpt setup
-set rtp+=~/.vim/bundle/Vundle.vim
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
 
-" vundle setup
-call vundle#begin()
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'dracula/vim'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-airline/vim-airline'
+Plug 'fatih/vim-go', { 'for': 'go'}
 
-Plugin 'fatih/vim-go', { 'for': 'go'}
+Plug 'pangloss/vim-javascript', { 'for': 'javascript'}
+Plug 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
 
-Plugin 'pangloss/vim-javascript', { 'for': 'javascript'}
-Plugin 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
-Plugin 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
+Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 
-Plugin 'rust-lang/rust.vim', { 'for': 'rust'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp']}
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
-Plugin 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp', 'rust']}
-Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}
 
-Plugin 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plugin 'junegunn/fzf.vim'
-
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'jiangmiao/auto-pairs'
-call vundle#end()
+Plug 'editorconfig/editorconfig-vim'
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
 
 " basic conf
 set number
@@ -79,10 +73,8 @@ colorscheme solarized
 " set bundle
 
 " ycm
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
-let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_complete_in_comments = 1
 
 " ultisnips
@@ -98,7 +90,6 @@ let g:javascript_plugin_jsdoc = 1
 
 " emmet
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,markdown,javascript EmmetInstall
 
 " vim-airline
 "let g:airline#extensions#tabline#enabled = 1
