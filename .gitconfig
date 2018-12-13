@@ -18,10 +18,10 @@
   co = checkout
   pr = pull --rebase
   cch = config credential.helper 'cache --timeout=3600'
-  ps = push
-  addu = add -u
-  adda = add -A
+  adu = add -u
+  ada = add -A
   df = diff
+  pu = push
 
 
 [credential "https://github.com"]
