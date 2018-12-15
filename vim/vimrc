@@ -1,4 +1,4 @@
-" plug manager 
+" plug manager
 call plug#begin('~/.vim/plugged')
 
 Plug 'SirVer/ultisnips'
@@ -15,7 +15,7 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'rust', 'c', 'cpp']}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'c', 'cpp']}
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 Plug 'shime/vim-livedown', { 'for': 'markdown', 'do': 'npm install'}

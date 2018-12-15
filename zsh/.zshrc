@@ -2,6 +2,7 @@
 export PATH=~/.local/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
+export FZF_DEFAULT_COMMAND='rg --files -L -i '
 #export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
 
 ## awesome fonts
@@ -61,3 +62,8 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias -s html=google-chrome-stable
+
+
+# ulimit
+ulimit -n 16384
+ulimit -l 1024
