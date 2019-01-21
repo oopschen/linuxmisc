@@ -17,11 +17,14 @@
   ci = commit -m
   co = checkout
   pr = pull --rebase
-  cch = config credential.helper 'cache --timeout=3600'
-  adu = add -u
-  ada = add -A
+  cc = config credential.helper 'cache --timeout=3600'
+  au = add -u
+  aa = add -A
   df = diff
   pu = push
+  br =  branch
+  mg = merge
+  sh = stash
 
 
 [credential "https://github.com"]

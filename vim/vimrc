@@ -77,6 +77,7 @@ colorscheme gruvbox
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_complete_in_comments = 1
+let g:ycm_server_python_interpreter = 'python'
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-e>"

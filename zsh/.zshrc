@@ -61,6 +61,10 @@ alias ll='ls -lh --color'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias dkc-db-dev='dkc exec ${DBSERVICE:-db} mysql -h 127.0.0.1 -u dev -p123456 ${DBNAME:-dev}'
+alias g='git'
+alias sX='startx'
+## alias
 alias -s html=google-chrome-stable
 
 
