@@ -11,13 +11,8 @@ print_help
 isStop=0
 while [[ "0" == "$isStop" ]]; do
   echo -e "Input command: "
-  read -r cmd
-  cmdtr=$(echo $cmd | tr -s '')
-  case $(echo "$cmdtr" | cut -d ' ' -z -f1) in 
-    help|h)
-      print_help
-      ;;
-
+  read -r cmd cmdArg
+  case "$cmd" in
     list|ls)
       cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig')
       i=1
@@ -30,7 +25,7 @@ while [[ "0" == "$isStop" ]]; do
       ;;
 
     load|ld)
-      inFile=$(echo "$cmdtr" | cut -d ' ' -z -f2)
+      inFile=$cmdArg
       cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig')
       if [ -f ~/.tmuxp/$inFile.yaml ]; then
         tmuxp load $inFile

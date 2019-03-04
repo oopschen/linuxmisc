@@ -64,10 +64,6 @@ alias mv='mv -i'
 alias dkc-db-dev='dkc exec ${DBSERVICE:-db} mysql -h 127.0.0.1 -u dev -p123456 ${DBNAME:-dev}'
 alias g='git'
 alias sX='startx'
+alias wip='watch -n 1 ip addr show dev wlp3s0'
 ## alias
 alias -s html=google-chrome-stable
-
-
-# ulimit
-ulimit -n 16384
-ulimit -l 1024

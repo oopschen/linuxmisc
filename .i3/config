@@ -211,8 +211,10 @@ assign [class="(?i).*chrome.*"] 2
 assign [class="(?i)jetbrains.*"] 3
 ## w4 video: mpv
 assign [class="(?i)mpv"] 4
+assign [class="(?i)mysql-workbench-bin"] 4
 ## w5 download: vuze
 assign [class="(?i)vuze"] 5
+assign [class="(?i)thunderbird"] 5
 ## w6 remote desktop
 assign [class="(?i)rdesktop"] 6
 ## w7 virtual host
