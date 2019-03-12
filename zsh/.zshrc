@@ -1,5 +1,6 @@
 # env
-export PATH=~/.local/bin:$PATH
+export JAVA_HOME=/opt/openjdk-bin-11.0.2_p7
+export PATH=~/.local/bin:$JAVA_HOME/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND='rg --files -L -i '
