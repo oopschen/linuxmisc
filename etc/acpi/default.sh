@@ -52,10 +52,18 @@ case "$group" in
 			#	cpufreq-set -g performance
 			#	;;
 			*0)	logger "AC acdapter unattached:$(hprofile power.bat)" ;;
-			*1) 	logger "AC acdapter attached $(hprofile power.med)" ;;
+			*1) logger "AC acdapter attached $(hprofile power.dyn)" ;;
 			*)	log_unhandled $*;;
 		esac
 		;;
+
+  battery)
+    case "$value" in
+      *0) logger "Battery unattached:$(hprofile power.dyn)" ;;
+      *1) logger "Battery attached $(hprofile power.bat)" ;;
+      *)  log_unhandled $* ;;
+    esac
+    ;;
 
 	video)
 		case "$action" in
