@@ -45,7 +45,7 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 # lock
-bindsym $mod+F9 "exec --no-startup-id i3lock -i ~/.i3/screen-saver.png"
+bindsym $mod+F9 "exec --no-startup-id i3lock -n -i ~/.i3/screen-saver.png"
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec "dmenu_run -b -f -l 5 -p '$' -i -fn 'Source Code Pro-15px' -nb '#333333' -nf '#AEACB2' -sb '#3079ed' -sf '#ffffff'"

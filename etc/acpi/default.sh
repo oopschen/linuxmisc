@@ -10,16 +10,6 @@ device=$2
 id=$3
 value=$4
 
-# def values
-[ -d /dev/snd ] && alsa=true || alsa=false
-
-amixer="amixer -q set Master"
-brdir="/sys/class/backlight/intel_backlight/"
-maxbrightness=$(cat ${brdir}/max_brightness)
-curbrightness=$(cat ${brdir}/brightness)
-step=$(echo "a=${maxbrightness}/10; if(a<=0) {a=1}; a" | bc)
-
-
 log_unhandled() {
 	logger "ACPI event unhandled: $*"
 }
@@ -39,9 +29,7 @@ case "$group" in
 			#	xset dpms force off
 			#	;;
 
-			mute) 		$alsa && $amixer toggle;;
-			volumeup) 	$alsa && $amixer 3dB+;;
-			volumedown) 	$alsa && $amixer 3dB-;;
+      mute|volumeup|volumedown) /etc/acpi/actions/volume.sh $action ;;
 			*)	log_unhandled $* ;;
 		esac
 		;;
@@ -68,19 +56,10 @@ case "$group" in
 			*)	log_unhandled $*;;
 		esac
 		;;
+
 	video)
-
 		case "$action" in
-			brightnessup) 
-				val=$(echo "a=${curbrightness} + ${step};if (a > ${maxbrightness}) {a=${maxbrightness}}; a" | bc)
-				echo $val > ${brdir}/brightness
-				;;
-			brightnessdown)
-				val=$(echo "a=${curbrightness} - ${step};if (a<0) {a = ${step}};a" | bc)
-				logger "down $val"
-				echo $val > ${brdir}/brightness
-				;;
-
+			brightnessup|brightnessdown) /etc/acpi/actions/video.sh $action ;;
 			*)	log_unhandled $value;;
 		esac
 		;;

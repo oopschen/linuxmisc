@@ -25,7 +25,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 #zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
 #POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir ssh)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir ssh virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs background_jobs history)
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, defer:3
 #end
@@ -65,6 +65,14 @@ alias mv='mv -i'
 alias dkc-db-dev='dkc exec ${DBSERVICE:-db} mysql -h 127.0.0.1 -u dev -p123456 ${DBNAME:-dev}'
 alias g='git'
 alias sX='startx'
-alias wip='watch -n 1 ip addr show dev wlp3s0'
+alias wip='watch -n 1 ip addr show dev wlp2s0'
 ## alias
 alias -s html=google-chrome-stable
+
+alias startwifi="sudo rc-service net.wlp2s0 start"
+alias restartwifi="sudo rc-service net.wlp2s0 restart"
+alias vpninit="shadowsocks-redir-iptables A ~/.config/shadowsocks.json"
+alias vpntoggle="shadowsocks-redir-iptables T ~/.config/shadowsocks.json"
+alias vpnoff="shadowsocks-redir-iptables D ~/.config/shadowsocks.json"
+alias hdmi1off="xrandr --output HDMI1 --off"
+alias hdmi1on="xrandr --output HDMI1 --auto --primary --above eDP1"

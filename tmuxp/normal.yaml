@@ -2,9 +2,5 @@ session_name: normal-work
 windows:
 - window_name: main
   panes:
-    - 
+    -
       focus: true
-
-- window_name: main
-  panes:
-    - shell_command: su -l root
