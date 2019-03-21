@@ -33,6 +33,7 @@ set $down k
 set $left j
 set $right l
 set $mod Mod4
+set $alt Mod1
 
 
 # use Mouse+$mod to drag floating windows to their wanted position
@@ -131,6 +132,13 @@ bindsym $mod+Shift+r restart
 # screen saver
 bindsym $mod+Shift+y exec "xset +dpms && xset s on"
 bindsym $mod+Shift+n exec "xset -dpms && xset s off"
+
+# monitor
+bindsym $alt+p move workspace to output eDP1
+bindsym $alt+h move workspace to output HDMI1
+bindsym $alt+Shift+p move container to output eDP1
+bindsym $alt+Shift+h move container to output HDMI1
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
