@@ -57,14 +57,6 @@ case "$group" in
 		esac
 		;;
 
-  battery)
-    case "$value" in
-      *0) logger "Battery unattached:$(hprofile power.dyn)" ;;
-      *1) logger "Battery attached $(hprofile power.bat)" ;;
-      *)  log_unhandled $* ;;
-    esac
-    ;;
-
 	video)
 		case "$action" in
 			brightnessup|brightnessdown) /etc/acpi/actions/video.sh $action ;;
