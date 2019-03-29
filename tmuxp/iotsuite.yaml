@@ -10,3 +10,15 @@ windows:
   start_directory: ~/project/ld/netbox-doc
   panes:
     -
+
+- window_name: deployment
+  start_directory: ~/project/ld/iotsuite/misc/deployment/
+  panes:
+    -
+
+- window_name: mock
+  start_directory: ~/project/ld/iotsuite/misc/deployment/mock
+  layout: even-horizontal
+  panes:
+    - pipenv shell
+    - pipenv shell

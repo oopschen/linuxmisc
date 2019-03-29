@@ -49,5 +49,38 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-" livedown
-nmap pm :LivedownToggle<CR>
+" pandoc
+nmap pc :Pandoc!<CR>
+
+function! FnPandocOpen(file)
+   let file = shellescape(fnamemodify(a:file, ':p'))
+   let file_extension = fnamemodify(a:file, ':e')
+
+   if file_extension is? 'pdf'
+     if !empty($PDFVIEWER)
+       return expand('$PDFVIEWER') . ' ' . file
+     elseif executable('zathura')
+       return 'zathura ' . file
+     elseif executable('mupdf')
+       return 'mupdf ' . file
+     endif
+   elseif file_extension is? 'html'
+     if !empty($BROWSER)
+       return expand('$BROWSER') . ' ' . file
+     elseif executable('firefox')
+       return 'firefox ' . file
+     elseif executable('chromium')
+       return 'chromium ' . file
+     elseif executable('google-chrome-stable')
+       return 'google-chrome-stable ' . file
+     endif
+   elseif file_extension is? 'odt' && executable('okular')
+     return 'okular ' . file
+   elseif file_extension is? 'epub' && executable('okular')
+     return 'okular ' . file
+   else
+     return 'xdg-open ' . file
+   endif
+endfunction
+
+let g:pandoc#command#custom_open = "FnPandocOpen"
