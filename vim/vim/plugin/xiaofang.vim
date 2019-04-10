@@ -3,7 +3,7 @@
 "
 "
 " Author: Chen Lei linxray@gmail.com
-" Last Change: 2018.01.23
+" Last Change: 2019.04.10
 "
 
 if exists("xiaofang")
@@ -12,9 +12,6 @@ endif
 
 " map begin
 
-:inoremap kk <ESC>
-:inoremap sss <ESC>:w<ENTER>
-:nnoremap qqqq :q!<ENTER>
 " end
 
 " map search selected text
@@ -42,12 +39,6 @@ command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>)
 :nmap <C-o> :Files<CR>
 :nmap <C-n> :Rg<CR>
 :nmap <C-b> :Buffers<CR>
-
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " pandoc
 nmap pc :Pandoc!<CR>
@@ -84,3 +75,9 @@ function! FnPandocOpen(file)
 endfunction
 
 let g:pandoc#command#custom_open = "FnPandocOpen"
+
+" coc.vim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)

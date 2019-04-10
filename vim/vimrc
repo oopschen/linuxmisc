@@ -16,8 +16,9 @@ Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'c', 'cpp']}
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable', 'for': ['javascript', 'go', 'javascript.jsx', 'c', 'cpp']}
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --go-completer --js-completer --rust-completer', 'for': ['javascript', 'go', 'javascript.jsx', 'c', 'cpp']}
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable', 'for': ['javascript', 'go', 'javascript.jsx', 'c', 'cpp']}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -111,3 +112,4 @@ let g:EditorConfig_exclude_patterns = ['scp://.*']
 " auto pair
 let g:AutoPairsShortcutFastWrap = '<C-e>w'
 let g:AutoPairsShortcutToggle = '<C-e>a'
+
