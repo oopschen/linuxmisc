@@ -1,0 +1,2 @@
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="18:56:80:1e:09:06", ATTR{dev_id}=="0x0", ATTR{type}=="1", KERNEL=="wlp*", NAME="w0"
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="d4:3a:65:07:f8:4e", KERNEL=="eth*", NAME="xmnic"

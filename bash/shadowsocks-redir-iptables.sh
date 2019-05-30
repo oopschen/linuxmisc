@@ -55,10 +55,12 @@ case $mode in
 	$cmd_iptables -t nat -A $chainName -p tcp -j REDIRECT --to-ports $localport
 
 	# Add any UDP rules
-	echo "chain $chainName: udp chains"
-	$cmd_ip route add local default dev lo table 100
-	$cmd_ip rule add fwmark 1 lookup 100
-	$cmd_iptables -t mangle -A $chainName -p udp --dport 53 -j TPROXY --on-port $localport --tproxy-mark 0x01/0x01
+  if [ ! -z "$USE_UDP" ]; then
+    echo "chain $chainName: udp chains"
+    $cmd_ip route add local default dev lo table 100
+    $cmd_ip rule add fwmark 1 lookup 100
+    $cmd_iptables -t mangle -A $chainName -p udp --dport 53 -j TPROXY --on-port $localport --tproxy-mark 0x01/0x01
+  fi
 
 	# Apply the rules
 	echo "chain $chainName: apply rules"
@@ -77,9 +79,11 @@ case $mode in
 	$cmd_iptables -t nat -F $chainName
 	$cmd_iptables -t mangle -F $chainName
 
-	echo "chain $chainName: delete udp chains"
-	$cmd_ip route del local default dev lo table 100
-	$cmd_ip rule del fwmark 1 lookup 100
+  if [ ! -z "$USE_UDP" ]; then
+    echo "chain $chainName: delete udp chains"
+    $cmd_ip route del local default dev lo table 100
+    $cmd_ip rule del fwmark 1 lookup 100
+  fi
 
 	echo "chain $chainName: delete chains"
 	# for server

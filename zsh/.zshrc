@@ -1,5 +1,5 @@
 # env
-export JAVA_HOME=/opt/openjdk-bin-11.0.2_p7
+export JAVA_HOME=~/opt/jdk1.8.0_202/
 export PATH=~/.local/bin:$JAVA_HOME/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
@@ -66,7 +66,7 @@ alias dkc-db='dkc exec ${DBSERVICE:-db} mysql -h ${DBHOST:-127.0.0.1} -u ${DBUSE
 alias dkc-reup='dkc stop $p; dkc rm -v $p; dkc up -d $p; dkc logs -f $p;'
 alias g='git'
 alias sX='startx'
-alias wip='watch -n 1 ip addr show dev wlp2s0'
+alias wip='watch -n 1 ip addr show dev wlan0'
 ## alias
 alias -s html=google-chrome-stable
 
@@ -77,5 +77,6 @@ alias vpntoggle="shadowsocks-redir-iptables T ~/.config/shadowsocks.json"
 alias vpnoff="shadowsocks-redir-iptables D ~/.config/shadowsocks.json"
 alias hdmi1off="xrandr --output HDMI1 --off"
 alias hdmi1on="xrandr --output HDMI1 --auto --primary --above eDP1"
+alias hdmi1mirror="xrandr --output HDMI1 --auto --primary --same-as eDP1"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

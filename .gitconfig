@@ -13,8 +13,10 @@
 
 [alias]
   lg = log --color --pretty=tree --graph
+  lgf = lg --author linpei --name-only --summary
   st = status
   ci = commit -m
+  camd = commit --amend
   co = checkout
   pr = pull --rebase
   cc = config credential.helper 'cache --timeout=3600'
@@ -32,3 +34,7 @@
 
 [credential "ddns.wzxjkj.com"]
 	username = worksangeshitou@163.com
+
+[diff "pandoc"]
+  textconv=pandoc --to=markdown
+  prompt = false
