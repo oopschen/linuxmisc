@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$#" -lt 1 ]; then
 	echo -e "mode: A add | D delete | T toggle temporary"
@@ -11,7 +11,7 @@ basedir=$(dirname $0)
 cfgfile=${2:-/etc/shadowsocks-libev/shadowsocks.json}
 socksserver=$(grep '"server":' $cfgfile | sed -re 's/.*\s*:\s*"([^"]+)".*/\1/ig')
 localport=$(grep 'local_port' $cfgfile | sed -re 's/.*:\s*([^, ]+).*/\1/ig')
-echo -e "sever=$socksserver,localport=$localport,cfg=$cfgfile"
+echo -e "sever=$socksserver,localport=$localport,cfg=$cfgfile, udp_mode=$(test -z \"${USE_UDP}\" && 0)"
 
 
 
@@ -22,10 +22,9 @@ case $mode in
 	# create rules
 	echo "create chain $chainName"
 	$cmd_iptables -t nat -N $chainName
-	$cmd_iptables -t mangle -N $chainName
 
 	# Ignore your $chainName server's addresses
-	echo "chain $chainName: ignore socks server"
+	echo "chain $chainName: ignore socks server: $socksserver"
 	$cmd_iptables -t nat -A $chainName -d $socksserver -j RETURN
 
 	# Ignore lan
@@ -54,22 +53,10 @@ case $mode in
 	echo "chain $chainName: redirect all tcp"
 	$cmd_iptables -t nat -A $chainName -p tcp -j REDIRECT --to-ports $localport
 
-	# Add any UDP rules
-  if [ ! -z "$USE_UDP" ]; then
-    echo "chain $chainName: udp chains"
-    $cmd_ip route add local default dev lo table 100
-    $cmd_ip rule add fwmark 1 lookup 100
-    $cmd_iptables -t mangle -A $chainName -p udp --dport 53 -j TPROXY --on-port $localport --tproxy-mark 0x01/0x01
-  fi
-
 	# Apply the rules
 	echo "chain $chainName: apply rules"
-	# for server
-	#$cmd_iptables -t nat -A PREROUTING -p tcp -j $chainName
-	#$cmd_iptables -t mangle -A PREROUTING -j $chainName
 	# for desktop
 	$cmd_iptables -t nat -A OUTPUT -p tcp -j $chainName
-	$cmd_iptables -t mangle -A PREROUTING -j $chainName
 	echo "Done......"
 
 	;;
@@ -77,24 +64,11 @@ case $mode in
 	D)
 	echo "chain $chainName: flush chains"
 	$cmd_iptables -t nat -F $chainName
-	$cmd_iptables -t mangle -F $chainName
-
-  if [ ! -z "$USE_UDP" ]; then
-    echo "chain $chainName: delete udp chains"
-    $cmd_ip route del local default dev lo table 100
-    $cmd_ip rule del fwmark 1 lookup 100
-  fi
 
 	echo "chain $chainName: delete chains"
-	# for server
-	#$cmd_iptables -t nat -D PREROUTING -p tcp -j $chainName
-	#$cmd_iptables -t mangle -D PREROUTING -j $chainName
-	# for desktop
 	$cmd_iptables -t nat -D OUTPUT -p tcp -j $chainName
-	$cmd_iptables -t mangle -D PREROUTING -j $chainName
 
 	$cmd_iptables -t nat -X $chainName
-	$cmd_iptables -t mangle -X $chainName
 	echo "Done......"
 
 	;;
@@ -104,11 +78,9 @@ case $mode in
 		msg=
 		if [ -z "$inText" ]; then
 			$cmd_iptables -t nat -A OUTPUT -p tcp -j $chainName
-			$cmd_iptables -t mangle -A PREROUTING -j $chainName
 			msg=UP
 		else
 			$cmd_iptables -t nat -D OUTPUT -p tcp -j $chainName
-			$cmd_iptables -t mangle -D PREROUTING -j $chainName
 			msg=DOWN
 		fi
 		echo "$msg Done......"

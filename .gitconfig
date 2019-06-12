@@ -4,7 +4,8 @@
 	email = linxray@gmail.com
 	name = Ray
 [push]
-	default = simple
+	default           = simple
+  recurseSubmodules = on-demand
 [color]
 	ui = auto
 
@@ -12,21 +13,21 @@
   tree = %C(auto) %h %d %C(blue) %s %C(reset)BY %cn [%cr]
 
 [alias]
-  lg = log --color --pretty=tree --graph
-  lgf = lg --author linpei --name-only --summary
-  st = status
-  ci = commit -m
+  lg   = log --color --pretty=tree --graph
+  lgf  = lg --author linpei --name-only --summary
+  st   = status
+  ci   = commit -m
   camd = commit --amend
-  co = checkout
-  pr = pull --rebase
-  cc = config credential.helper 'cache --timeout=3600'
-  au = add -u
-  aa = add -A
-  df = diff
-  pu = push
-  br =  branch
-  mg = merge
-  sh = stash
+  co   = checkout
+  pr   = pull --rebase
+  cc   = config credential.helper 'cache --timeout = 3600'
+  au   = add -u
+  aa   = add -A
+  df   = diff
+  pu   = push
+  br   = branch
+  mg   = merge
+  sh   = stash
 
 
 [credential "https://github.com"]

@@ -70,8 +70,8 @@ alias wip='watch -n 1 ip addr show dev wlan0'
 ## alias
 alias -s html=google-chrome-stable
 
-alias startwifi="sudo rc-service net.wlp2s0 start"
-alias restartwifi="sudo rc-service net.wlp2s0 restart"
+alias startwifi="sudo rc-service net.wlan0 start"
+alias restartwifi="sudo rc-service net.wlan0 restart"
 alias vpninit="shadowsocks-redir-iptables A ~/.config/shadowsocks.json"
 alias vpntoggle="shadowsocks-redir-iptables T ~/.config/shadowsocks.json"
 alias vpnoff="shadowsocks-redir-iptables D ~/.config/shadowsocks.json"

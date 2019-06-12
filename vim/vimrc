@@ -28,6 +28,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular'
 call plug#end()
 
 " basic conf
@@ -113,3 +114,5 @@ let g:EditorConfig_exclude_patterns = ['scp://.*']
 let g:AutoPairsShortcutFastWrap = '<C-e>w'
 let g:AutoPairsShortcutToggle = '<C-e>a'
 
+" pandoc
+let g:pandoc#folding#level = 2
