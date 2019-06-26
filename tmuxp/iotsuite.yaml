@@ -1,10 +1,10 @@
 session_name: iotsuite
 windows:
 - window_name: iot
+  focus: true
   start_directory: ~/project/ld/iotsuite
   panes:
     -
-      focus: true
 
 - window_name: doc
   start_directory: ~/project/ld/netbox-doc

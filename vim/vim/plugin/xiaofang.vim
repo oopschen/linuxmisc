@@ -40,8 +40,8 @@ command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>)
 :nmap <C-n> :Rg<CR>
 :nmap <C-b> :Buffers<CR>
 
-" pandoc
-nmap pc :Pandoc!<CR>
+" pandoc html
+nmap pah :Pandoc! html5 -c ~/.pandoc/css/github.css -o <C-R>='/tmp/'.fnamemodify(expand('%'), ':t:r').'.html'<CR><CR>
 
 function! FnPandocOpen(file)
    let file = shellescape(fnamemodify(a:file, ':p'))
