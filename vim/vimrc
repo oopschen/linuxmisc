@@ -8,7 +8,7 @@ Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
 
-Plug 'fatih/vim-go', { 'for': 'go'}
+"Plug 'fatih/vim-go', { 'for': 'go'}
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript'}
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
@@ -116,3 +116,5 @@ let g:AutoPairsShortcutToggle = '<C-e>a'
 
 " pandoc
 let g:pandoc#folding#level = 2
+let g:pandoc#command#autoexec_on_writes = 1
+let g:pandoc#command#autoexec_command = "exec FnPandocHtml5Command(0)"

@@ -10,5 +10,5 @@ if [ 0 -ne $? ]; then
   exit 1
 fi
 
-ripquerier -i $downloadfile -t ipv4 -s allocated -c CN \
+ripquerier -i $downloadfile -t ipv4 -s allocated -s assigned -c HK -c CN \
   | tail -n +5 > $destfile
