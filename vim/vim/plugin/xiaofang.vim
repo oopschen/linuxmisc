@@ -41,21 +41,26 @@ command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>)
 :nmap <C-b> :Buffers<CR>
 
 " pandoc html
-nmap pah :exec FnPandocHtml5Command(1)<CR>
+nmap pah :call FnPandocHtml5Command(1, 0)<CR>
 
-function! FnPandocHtml5Command(isOpen)
+function! FnPandocHtml5Command(isOpen, noCompileIfMissing)
   let filePrefix = 'autogen-pandoc-'
   if exists("*strftime")
     let filePrefix = filePrefix . strftime('%Y-%m-%d-')
   endif
 
-  let filename = '/tmp/' . filePrefix . fnamemodify(expand('%'), ':t:r') . '.html'
+  let outputFilePath = '/tmp/' . filePrefix . fnamemodify(expand('%'), ':t:r') . '.html'
   let pandocCmd = 'Pandoc'
 
   if a:isOpen
     let pandocCmd = pandocCmd . '!'
   endif
-  return pandocCmd . ' html5 ' . '--toc -c ~/.pandoc/css/github.css' . ' -o ' . filename
+
+  if a:noCompileIfMissing && !filereadable(outputFilePath)
+    return
+  endif
+
+  exec pandocCmd . ' html5 ' . '--toc -c ~/.pandoc/css/github.css' . ' -o ' . outputFilePath
 endfunction
 
 
