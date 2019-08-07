@@ -67,8 +67,22 @@ alias dkc-reup='dkc stop $p; dkc rm -v $p; dkc up -d $p; dkc logs -f $p;'
 alias g='git'
 alias sX='startx'
 alias wip='watch -n 1 ip addr show dev wlan0'
-## alias
-alias -s html=google-chrome-stable
+## alias suffix
+alias -s html=google-chrome-stable \
+  docx=wps \
+  doc=wps \
+  xlsx=et \
+  xls=et \
+  pdf=mupdf \
+  png=sxiv \
+  jpeg=sxiv \
+  jpg=sxiv \
+  gif=sxiv \
+  bmp=sxiv \
+  md=vim \
+  conf=vim \
+  svg=google-chrome-stable \
+  log=vim
 
 alias startwifi="sudo rc-service net.wlan0 start"
 alias restartwifi="sudo rc-service net.wlan0 restart"
@@ -80,3 +94,10 @@ alias hdmi1on="xrandr --output HDMI1 --auto --primary --above eDP1"
 alias hdmi1mirror="xrandr --output HDMI1 --auto --primary --same-as eDP1"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+### environment
+##### node js
+export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
+export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
+export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+#####

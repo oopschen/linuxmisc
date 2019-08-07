@@ -211,6 +211,7 @@ assign [class="(?i)jetbrains.*"] 3
 ## w4 video: mpv
 assign [class="(?i)mpv"] 4
 assign [class="(?i)mysql-workbench-bin"] 4
+assign [class="(?i)dbeaver.*"] 4
 ## w5 download: vuze
 assign [class="(?i)vuze"] 5
 assign [class="(?i)thunderbird"] 5
