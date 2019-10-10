@@ -14,13 +14,14 @@
 
 [alias]
   lg   = log --color --pretty=tree --graph
-  lgf  = lg --author linpei --name-only --summary
+  lgf  = lg  --name-only --summary --author
   st   = status
   ci   = commit -m
   camd = commit --amend
   co   = checkout
   pr   = pull --rebase
-  cc   = config credential.helper 'cache --timeout = 3600'
+  # 8 hrs
+  cc   = config credential.helper 'cache --timeout=28800'
   au   = add -u
   aa   = add -A
   df   = diff
@@ -33,8 +34,11 @@
 [credential "https://github.com"]
 	username = linxray@gmail.com
 
-[credential "ddns.wzxjkj.com"]
+[credential "http://ddns.wzxjkj.com"]
 	username = worksangeshitou@163.com
+
+[credential "http://work.lidig.com:8088"]
+	username = chenlei@lidig.com
 
 [diff "pandoc"]
   textconv=pandoc --to=markdown
