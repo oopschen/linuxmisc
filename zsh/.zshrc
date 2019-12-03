@@ -40,6 +40,9 @@ zplug "junegunn/fzf-bin", \
 # z
 zplug "plugins/z", from:oh-my-zsh
 
+# gradle completion
+zplug "gradle/gradle-completion", from:github, as:command
+
 zplug load
 
 ####### end
@@ -92,6 +95,7 @@ alias vpnoff="shadowsocks-redir-iptables D ~/.config/shadowsocks.json"
 alias hdmi1off="xrandr --output HDMI1 --off"
 alias hdmi1on="xrandr --output HDMI1 --auto --primary --above eDP1"
 alias hdmi1mirror="xrandr --output HDMI1 --auto --primary --same-as eDP1"
+alias gw="./gradlew"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -101,3 +105,8 @@ export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 #####
+
+## git prompt
+source /usr/share/git/git-prompt.sh
+setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+precmd () { __git_ps1 "%n" ":%~$ " "|%s" }

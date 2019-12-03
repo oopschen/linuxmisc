@@ -1,0 +1,9 @@
+session_name: easyweb
+windows:
+- window_name: gallery
+  focus: true
+  start_directory: ~/project/ray
+  layout: even-horizontal
+  panes:
+    - cd gradle-gallery
+    - cd gradle-gallery-test

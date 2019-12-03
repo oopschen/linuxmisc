@@ -1,8 +1,6 @@
 " plug manager
 call plug#begin('~/.vim/plugged')
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
@@ -81,13 +79,6 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 let g:ycm_min_num_of_chars_for_completion = 4
 let g:ycm_complete_in_comments = 1
 let g:ycm_server_python_interpreter = 'python'
-
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsListSnippets="<c-s-l>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 
 " vim-javascript
 let g:javascript_plugin_flow = 1
