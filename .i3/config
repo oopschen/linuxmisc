@@ -134,10 +134,17 @@ bindsym $mod+Shift+y exec "xset +dpms && xset s on"
 bindsym $mod+Shift+n exec "xset -dpms && xset s off"
 
 # monitor
-bindsym $alt+p move workspace to output eDP1
-bindsym $alt+h move workspace to output HDMI1
-bindsym $alt+Shift+p move container to output eDP1
-bindsym $alt+Shift+h move container to output HDMI1
+bindsym $alt+p move workspace to output primary
+bindsym $alt+h move workspace to output left
+bindsym $alt+l move workspace to output right
+bindsym $alt+i move workspace to output up
+bindsym $alt+k move workspace to output down
+
+bindsym $alt+Shift+p move container to output primay
+bindsym $alt+Shift+h move container to output left
+bindsym $alt+Shift+l move container to output right
+bindsym $alt+Shift+i move container to output up
+bindsym $alt+Shift+k move container to output down
 
 
 # resize window (you can also use the mouse for that)
