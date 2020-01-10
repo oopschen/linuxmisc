@@ -1,6 +1,8 @@
 " plug manager
 call plug#begin('~/.vim/plugged')
 
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
