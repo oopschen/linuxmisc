@@ -10,6 +10,7 @@ app-i18n/fcitx-cloudpinyin
 app-i18n/fcitx-configtool
 app-misc/ca-certificates
 app-misc/tmux
+app-office/wps-office
 app-shells/bash
 app-shells/zsh
 app-text/tree
@@ -87,6 +88,7 @@ net-analyzer/wireshark
 net-dns/bind-tools
 net-dns/dnsmasq
 net-fs/samba
+net-misc/curl
 net-misc/dhcpcd
 net-misc/netifrc
 net-misc/ntp
@@ -94,6 +96,7 @@ net-misc/rdesktop
 net-proxy/shadowsocks-libev
 net-wireless/iw
 net-wireless/wpa_supplicant
+sys-apps/hprofile
 sys-apps/ripgrep
 sys-apps/usbutils
 sys-block/parted
@@ -105,6 +108,7 @@ sys-fs/xfsprogs
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
 sys-kernel/linux-firmware
+sys-power/acpid
 sys-process/fcron
 virtual/perl-CPAN-Meta
 virtual/perl-CPAN-Meta-YAML
@@ -146,6 +150,7 @@ virtual/perl-parent
 virtual/perl-podlators
 virtual/perl-version
 www-client/google-chrome
+x11-apps/xbacklight
 x11-apps/xclock
 x11-apps/xev
 x11-apps/xkbcomp
