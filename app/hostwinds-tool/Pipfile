@@ -11,3 +11,6 @@ requests = "*"
 
 [requires]
 python_version = "3.6"
+
+[scripts]
+alert = "python -m hostwinds.entry.alert_command --alert-thresholds 0.0000001"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from .hostwinds import BaseHostwindsAPI
+from hostwinds.hostwinds import BaseHostwindsAPI
 
 class BandWidthAlert(BaseHostwindsAPI):
   def __init__(self, keyFile, alertThreshold=0.9):
@@ -21,9 +21,9 @@ class BandWidthAlert(BaseHostwindsAPI):
       if None == used:
         usedVal = None
       else:
-        usedVal  = float(usedVal)
+        usedVal  = float(used)
 
-      yield ( tolVal, usedVal, instance['name'])
+      yield (tolVal, usedVal, instance['name'])
 
   def alert(self):
     for (bandwidthTol, bandwidthUsed, name) in self.request_data():

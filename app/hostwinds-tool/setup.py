@@ -8,7 +8,7 @@ setup(
     package_dir = {"": 'src'},
     entry_points = {
       "console_scripts": [
-        "hw-alert = alert:main"
+        "hw-alert=hostwinds.entry.alert_command:main"
         ]
       },
     install_requires=["requests"],
