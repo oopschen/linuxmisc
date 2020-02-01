@@ -4,6 +4,7 @@ export PATH=~/.local/bin:$JAVA_HOME/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND='rg --files -L -i '
+export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
 #export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
 
 ## awesome fonts
