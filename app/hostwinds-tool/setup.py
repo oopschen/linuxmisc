@@ -14,6 +14,9 @@ setup(
     install_requires=["requests"],
     author="oopsc",
     author_email="linxray@gmail.com",
-    keywords="hostwinds api, alert"
+    keywords="hostwinds api, alert",
+    url="https://github.com/oopschen/linuxmisc/app/hostwind-tool",
+    description="a simple tool for hostwinds api, support alert bandwidht usage",
+    license="MIT"
 
 )
