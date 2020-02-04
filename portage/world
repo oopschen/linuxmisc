@@ -165,6 +165,7 @@ x11-base/xorg-drivers
 x11-base/xorg-server
 x11-drivers/xf86-video-intel
 x11-libs/pango
+x11-misc/dunst
 x11-misc/i3lock
 x11-misc/i3status
 x11-misc/tinynotify-send

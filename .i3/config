@@ -184,7 +184,7 @@ bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias
 exec --no-startup-id dunst
 exec --no-startup-id fcitx-autostart
 exec --no-startup-id google-chrome-stable
-exec --no-startup-id thunderbird
+exec --no-startup-id thunderbird-bin
 exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 
 # workspace
