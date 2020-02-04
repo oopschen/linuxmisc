@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import argparse
 from hostwinds.alert import BandWidthAlert
 

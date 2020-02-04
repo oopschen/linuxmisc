@@ -2,6 +2,7 @@ app-admin/logrotate
 app-admin/perl-cleaner
 app-admin/sudo
 app-admin/syslog-ng
+app-arch/unrar
 app-editors/vim
 app-emulation/docker
 app-emulation/qemu
@@ -9,6 +10,7 @@ app-i18n/fcitx
 app-i18n/fcitx-cloudpinyin
 app-i18n/fcitx-configtool
 app-misc/ca-certificates
+app-misc/jq
 app-misc/tmux
 app-office/wps-office
 app-shells/bash
@@ -83,6 +85,7 @@ media-gfx/scrot
 media-gfx/sxiv
 media-sound/alsa-utils
 media-video/ffmpeg
+media-video/mpv
 net-analyzer/netcat
 net-analyzer/wireshark
 net-dns/bind-tools

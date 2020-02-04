@@ -17,7 +17,15 @@ class BaseHostwindsAPI:
 
     res = requests.post('https://clients.hostwinds.com/cloud/api.php', data=data)
     res.raise_for_status()
-    return res.json()
+
+    jsonRes = res.json()
+    self.__deal_with_error(jsonRes)
+
+    return jsonRes
+
+  def __deal_with_error(self, jsonRes):
+    if type(jsonRes) ==  list and 'error' == jsonRes[0]['result']:
+      raise Exception("requet error: " + jsonRes[0]['message'])
 
 if __name__ == '__main__':
   bapi = BaseHostwindsAPI("/tmp/key")

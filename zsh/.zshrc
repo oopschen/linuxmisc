@@ -1,6 +1,6 @@
 # env
 export JAVA_HOME=~/opt/jdk1.8.0_202/
-export PATH=~/.local/bin:$JAVA_HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND='rg --files -L -i '
