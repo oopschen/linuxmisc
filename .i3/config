@@ -46,7 +46,7 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 # lock
-bindsym $mod+F9 "exec --no-startup-id i3lock -n -i ~/.i3/screen-saver.png"
+bindsym $mod+Shift+l "exec --no-startup-id i3lock -n -t -i ~/.i3/screen-saver.png"
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec "dmenu_run -b -f -l 5 -p '$' -i -fn 'Source Code Pro-15px' -nb '#333333' -nf '#AEACB2' -sb '#3079ed' -sf '#ffffff'"
@@ -179,6 +179,9 @@ bindsym $mod+Shift+t floating toggle
 bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
 bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
+bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
+bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
+bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 
 # auto startups
 exec --no-startup-id dunst
