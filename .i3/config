@@ -45,8 +45,8 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# lock
-bindsym $mod+Shift+l "exec --no-startup-id i3lock -n -t -i ~/.i3/screen-saver.png"
+# use libinput gesture lock
+#bindsym $mod+Shift+l "exec --no-startup-id i3lock -n -t -i ~/.i3/screen-saver.png"
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec "dmenu_run -b -f -l 5 -p '$' -i -fn 'Source Code Pro-15px' -nb '#333333' -nf '#AEACB2' -sb '#3079ed' -sf '#ffffff'"
@@ -188,6 +188,7 @@ exec --no-startup-id dunst
 exec --no-startup-id fcitx-autostart
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id thunderbird-bin
+exec --no-startup-id libinput-gestures-setup autostart && libinput-gestures-setup start
 exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 
 # workspace
