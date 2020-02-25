@@ -172,6 +172,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+b bar hidden_state toggle
 # bindsym $mod+Shift+j move container to output left
 # bindsym $mod+Shift+r move container to output right
 
@@ -242,6 +243,7 @@ assign [title="(?i)dia"] 8
 bar {
     status_command i3status
     mode hide
+    modifier none
     position bottom
     tray_output none
     font pango:Source Code Pro 16px
