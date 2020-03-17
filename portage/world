@@ -2,6 +2,7 @@ app-admin/logrotate
 app-admin/perl-cleaner
 app-admin/sudo
 app-admin/syslog-ng
+app-arch/rar
 app-arch/unrar
 app-editors/vim
 app-emulation/docker
@@ -17,6 +18,7 @@ app-shells/bash
 app-shells/zsh
 app-text/pandoc
 app-text/tree
+dev-haskell/pandoc-citeproc
 dev-lang/perl
 dev-perl/AnyEvent
 dev-perl/AnyEvent-I3
@@ -88,7 +90,7 @@ media-libs/alsa-lib
 media-sound/alsa-utils
 media-video/ffmpeg
 media-video/mpv
-net-analyzer/netcat
+net-analyzer/openbsd-netcat
 net-analyzer/traceroute
 net-analyzer/wireshark
 net-dialup/ppp
@@ -96,6 +98,7 @@ net-dialup/xl2tpd
 net-dns/bind-tools
 net-dns/dnsmasq
 net-fs/samba
+net-libs/webkit-gtk
 net-misc/curl
 net-misc/dhcpcd
 net-misc/iperf
@@ -103,6 +106,9 @@ net-misc/netifrc
 net-misc/ntp
 net-misc/rdesktop
 net-proxy/shadowsocks-libev
+net-vpn/strongswan
+net-vpn/wireguard-modules
+net-vpn/wireguard-tools
 net-wireless/iw
 net-wireless/wpa_supplicant
 sys-apps/hprofile
@@ -175,6 +181,8 @@ x11-misc/dunst
 x11-misc/i3lock
 x11-misc/i3status
 x11-misc/tinynotify-send
+x11-misc/wmctrl
+x11-misc/xdotool
 x11-terms/st
 x11-terms/xterm
 x11-wm/i3
