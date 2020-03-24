@@ -187,10 +187,10 @@ bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir 
 # auto startups
 exec --no-startup-id dunst
 exec --no-startup-id fcitx-autostart
-exec --no-startup-id google-chrome-stable
-exec --no-startup-id thunderbird-bin
+exec google-chrome-stable
+exec thunderbird-bin
 exec --no-startup-id libinput-gestures-setup autostart && libinput-gestures-setup start
-exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
+exec st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 
 # workspace
 default_orientation auto
