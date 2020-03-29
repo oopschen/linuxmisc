@@ -111,7 +111,7 @@ case $mode in
       disable_redir
 			msg=DOWN
 		fi
-		echo "$msg Down......"
+		echo "$msg done......"
 	;;
 
 	S)
