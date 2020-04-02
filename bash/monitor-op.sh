@@ -11,10 +11,11 @@ function query_monitor_name() {
 
 mainMonitor=$(query_monitor_name edp)
 externalMonitor=$(query_monitor_name hdmi)
+allExternalMonitor=$(xrandr -q | grep -i hdmi | cut -d ' ' -f 1)
 
 case "$1" in
   hdmi-off)
-    for m in $externalMonitor
+    for m in $allExternalMonitor
     do
       echo -e "turn off $m"
       xrandr --output $m --off
