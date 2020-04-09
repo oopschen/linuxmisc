@@ -61,7 +61,7 @@ configuration {
 /*	max-history-size: 25;*/
 /*	combi-hide-mode-prefix: false;*/
 /*	matching-negate-char: '-' /* unsupported */;*/
-    cache-dir: "/tmp/rofi";
+/*  cache-dir: ;*/
 /*	pid: "/home/work/.cache/rofi.pid";*/
 /*	display-run: ;*/
 /*	display-ssh: ;*/
