@@ -6,4 +6,4 @@ export GTK_IM_MODULE=fcitx
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 xsetroot -cursor_name left_ptr
 
-exec ck-launch-session dbus-launch --auto-syntax --exit-with-session i3
+exec dbus-launch --auto-syntax --exit-with-session i3

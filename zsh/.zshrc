@@ -98,6 +98,7 @@ alias hdmi1on="monitor-op hdmi-on"
 alias hdmi1mirror="monitor-op hdmi-mirror"
 alias gw="./gradlew"
 alias bdcls="pgrep baidunetdisk | xargs kill -HUP"
+alias cuzp="unzip -O cp936"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
