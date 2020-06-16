@@ -1,6 +1,6 @@
 # env
 export JAVA_HOME=~/opt/jdk1.8.0_202/
-export PATH=$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$PATH
+export PATH=$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND='rg --files -L -i '
@@ -100,6 +100,8 @@ alias gw="./gradlew"
 alias bdcls="pgrep baidunetdisk | xargs kill -HUP"
 alias cuzp="unzip -O cp936"
 alias ws="sudo wpa_cli -i wlan0"
+alias wsl="sudo wpa_cli -i wlan0 list_networks"
+alias wss="sudo wpa_cli -i wlan0 select_network"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
