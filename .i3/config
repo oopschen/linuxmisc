@@ -244,19 +244,19 @@ bar {
     status_command i3status
     mode hide
     modifier none
-    position bottom
+    position top
     tray_output none
-    font pango:Source Code Pro 16px
+    font pango:Source Code Pro 12px
     workspace_buttons yes
     strip_workspace_numbers yes
     status_command i3status --config ~/.i3/i3status.conf
     colors {
-      background #333333
-      statusline #FFFFFF
-      separator #3079ed
-      focused_workspace #3079ed #3079ed #FFFFFF
-      urgent_workspace #ebccd1 #f2dede #a94442
-      inactive_workspace  #656565 #656565 #F1EFFA
-      active_workspace #656565 #656565 #5FF541
+      background #39065a
+      statusline #f0a500
+      separator #f8f3d4
+      focused_workspace #ea0599 #6a0572 #FFFFFF
+      urgent_workspace #ea0599 #ea0599 #FFFFFF
+      inactive_workspace  #ea0599 #39065a #FFFFFF
+      active_workspace #ea0599 #fa1616 #092532
     }
 }

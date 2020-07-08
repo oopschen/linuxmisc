@@ -1,5 +1,5 @@
 # env
-export JAVA_HOME=~/opt/jdk1.8.0_202/
+export JAVA_HOME=~/opt/openjdk/jdk-11
 export PATH=$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
