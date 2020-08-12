@@ -80,7 +80,7 @@
     # Transient notifications ignore this setting.
     idle_threshold = 120
 
-    corner_radius = 15
+    corner_radius = 2
 
     ### Text ###
 
@@ -245,22 +245,22 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#2a363b"
-    foreground = "#fecea8"
-    timeout = 2
+    background = "#f9f9f9"
+    foreground = "#8f8787"
+    timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#2a363b"
-    foreground = "#fecea8"
+    background = "#ffb400"
+    foreground = "#474744"
     timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#e23e57"
-    foreground = "#311d3f"
+    background = "#ff4545"
+    foreground = "#ffedb2"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon

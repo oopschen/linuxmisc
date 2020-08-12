@@ -218,7 +218,7 @@ for_window [class="Dia" window_role="toolbox_window"] floating enable, resize se
 assign [class="(?i)urxvt"] 1
 assign [class="(?i)^st-"] 1
 ## w2 web: chrome
-assign [class="(?i)google-chrome.*"] 2
+assign [class="(?i)google-chrome.+"] 2
 ## w3 ide: idea
 assign [class="(?i)jetbrains.*"] 10
 assign [title="(?i)umlet"] 3
