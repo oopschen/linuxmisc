@@ -216,11 +216,15 @@ for_window [class="Dia" window_role="toolbox_window"] floating enable, resize se
 # assign window 2 workspace
 ## w1 terminal: urxvt
 assign [class="(?i)urxvt"] 1
-assign [class="(?i)st"] 1
+assign [class="(?i)^st-"] 1
 ## w2 web: chrome
-assign [class="(?i).*chrome.*"] 2
+assign [class="(?i)google-chrome.*"] 2
 ## w3 ide: idea
 assign [class="(?i)jetbrains.*"] 10
+assign [title="(?i)umlet"] 3
+assign [class="(?i)wps"] 3
+assign [class="(?i)et"] 3
+assign [class="(?i)wpp"] 3
 ## w4 video: mpv
 assign [class="(?i)mpv"] 4
 ## w5 download: vuze

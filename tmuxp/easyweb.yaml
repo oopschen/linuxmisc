@@ -14,9 +14,9 @@ windows:
   layout: main-vertical
   panes:
     - shell_command:
-      - cd ~/project/ray/web-starter
+      - cd "~/project/ray/web-starter"
       focus: true
     - shell_command:
-      - cd ~/demo/spring-security
+      - cd "~/demo/spring-security"
     - shell_command:
-      - cd ~/demo/spring-security
+      - cd "~/demo/spring-security"

@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = keyboard
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "600x3+600+5"
+    geometry = "475x0+1310+15"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -54,7 +54,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 8
+    padding = 3
 
     # Horizontal padding.
     horizontal_padding = 8
@@ -124,7 +124,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<big>%s</big>\n<span>%b</span>\n<small>%a</small>"
+    format = "<big>%s</big>\n<span>%b\n%p</span>\n<small>%a</small>"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -181,7 +181,8 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/firefox -new-tab
+    # browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/google-chrome-stable
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -246,14 +247,14 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#2a363b"
     foreground = "#fecea8"
-    timeout = 1
+    timeout = 2
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
     background = "#2a363b"
     foreground = "#fecea8"
-    timeout = 2
+    timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
