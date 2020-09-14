@@ -4,9 +4,9 @@
 ### Usage:
 ###     script
 
-# DV_SRC DV_DEST DV_VOLNAME
+# DV_SRC DV_VOLNAME
 srcDir=${DV_SRC:=/tmp/docker-vol-init-src}
-absDestDir=${DV_DEST:=/mnt/non-exists}
+absDestDir=/mnt
 volumeName=${DV_VOLNAME:=docker-vol-init}
 srcDirMappingName=/media/dest-$(echo $RANDOM | tr -d '\n')
 
