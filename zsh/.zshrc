@@ -99,9 +99,11 @@ alias hdm="monitor-op hdmi-mirror"
 alias gw="./gradlew"
 alias bdcls="pgrep baidunetdisk | xargs kill -HUP"
 alias cuzp="unzip -O cp936"
+### wpa_cli commands alias
 alias ws="sudo wpa_cli -i wlan0"
 alias wsl="sudo wpa_cli -i wlan0 list_networks"
 alias wss="sudo wpa_cli -i wlan0 select_network"
+alias wsrc="sudo wpa_cli -i wlan0 reassociate"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

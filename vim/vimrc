@@ -1,7 +1,7 @@
 " plug manager
 call plug#begin('~/.vim/plugged')
 
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
@@ -10,9 +10,9 @@ Plug 'vim-airline/vim-airline'
 
 "Plug 'fatih/vim-go', { 'for': 'go'}
 
-Plug 'pangloss/vim-javascript', { 'for': 'javascript'}
+"Plug 'pangloss/vim-javascript', { 'for': 'javascript'}
 Plug 'mattn/emmet-vim', { 'for': ['javascript', 'markdown', 'javascript.jsx', 'html']}
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
+"Plug 'mxw/vim-jsx', { 'for': ['javascript', 'javascript.jsx']}
 
 Plug 'rust-lang/rust.vim', { 'for': 'rust'}
 
@@ -64,7 +64,7 @@ set linebreak
 set updatetime=200
 " end
 
-set rtp+=~/.vim/plugged/vim-jsx/after/syntax/jsx.vim
+"set rtp+=~/.vim/plugged/vim-jsx/after/syntax/jsx.vim
 
 " color
 "let g:solarized_termcolors=256
@@ -96,7 +96,7 @@ autocmd FileType html,css,javascript,markdown,javascript.jsx EmmetInstall
 let g:airline_theme='zenburn'
 
 " vim-jsx
-let g:jsx_ext_required = 0
+"let g:jsx_ext_required = 0
 
 
 " editor config

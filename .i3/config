@@ -140,6 +140,7 @@ bindsym $alt+l move workspace to output right
 bindsym $alt+i move workspace to output up
 bindsym $alt+k move workspace to output down
 
+
 bindsym $alt+Shift+p move container to output primay
 bindsym $alt+Shift+h move container to output left
 bindsym $alt+Shift+l move container to output right
