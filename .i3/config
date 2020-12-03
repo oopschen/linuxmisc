@@ -181,7 +181,7 @@ bindsym $mod+Shift+t floating toggle
 bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
 bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
-bindsym $mod+d exec "rofi -show combi"
+bindsym $mod+d exec "rofi -show combi -combi-modi window,run,drun"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"

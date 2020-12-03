@@ -5,6 +5,7 @@ export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND='rg --files -L -i '
 export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
+export SOLANA_HOME=~/opt/solana-release
 #export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
 
 ## awesome fonts
@@ -105,7 +106,7 @@ alias wsl="sudo wpa_cli -i wlan0 list_networks"
 alias wss="sudo wpa_cli -i wlan0 select_network"
 alias wsrc="sudo wpa_cli -i wlan0 reassociate"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ### environment
 ##### node js
