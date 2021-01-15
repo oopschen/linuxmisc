@@ -1,6 +1,7 @@
 # env
 export JAVA_HOME=~/opt/openjdk/jdk-11
-export PATH=$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
+export NODE_HOME=~/opt/node-v14.15.1-linux-x64
+export PATH=$NODE_HOME/bin:$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND='rg --files -L -i '
@@ -89,8 +90,8 @@ alias -s html=google-chrome-stable \
   svg=google-chrome-stable \
   log=vim
 
-alias startwifi="sudo rc-service net.wlan0 start"
-alias restartwifi="sudo rc-service net.wlan0 restart"
+alias swf="sudo rc-service net.wlan0 start"
+alias rswf="sudo rc-service net.wlan0 restart"
 alias vpninit="shadowsocks-redir-iptables A ~/.config/shadowsocks.json"
 alias vpntoggle="shadowsocks-redir-iptables T ~/.config/shadowsocks.json"
 alias vpnoff="shadowsocks-redir-iptables D ~/.config/shadowsocks.json"
@@ -98,13 +99,13 @@ alias hdof="monitor-op hdmi-off"
 alias hdo="monitor-op hdmi-on"
 alias hdm="monitor-op hdmi-mirror"
 alias gw="./gradlew"
-alias bdcls="pgrep baidunetdisk | xargs kill -HUP"
 alias cuzp="unzip -O cp936"
 ### wpa_cli commands alias
 alias ws="sudo wpa_cli -i wlan0"
 alias wsl="sudo wpa_cli -i wlan0 list_networks"
 alias wss="sudo wpa_cli -i wlan0 select_network"
-alias wsrc="sudo wpa_cli -i wlan0 reassociate"
+alias alx="alsamixer"
+alias netw="watch -n5 \"ip a\""
 
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

@@ -29,7 +29,7 @@ function enable_redir() {
 cmd_iptables="sudo iptables"
 cmd_ip="sudo ip"
 basedir=$(dirname $0)
-socksserver=155.235.36.110
+socksserver=45.136.185.61
 localport=1280
 dnsIgnoreIP="114.114.114.114,115.115.115.115,223.6.6.6,223.5.5.5,127.0.0.1"
 echo -e "server=$socksserver,localport=$localport"

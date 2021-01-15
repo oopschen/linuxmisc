@@ -3,8 +3,8 @@ amixer="amixer -q set Master"
 [ -d /dev/snd ] && alsa=true || alsa=false
 
 case "$1" in
-  mute) 		$alsa && $amixer toggle;;
-  volumeup) 	$alsa && $amixer 5dB+;;
+  mute) 	$alsa && $amixer toggle;;
+  volumeup) 	$alsa && $amixer 2dB+ ;;
   # volumedown
-  *) 	$alsa && $amixer 5dB-;;
+  *) 	$alsa && $amixer 2dB-;;
 esac
