@@ -234,6 +234,7 @@ assign [class="(?i)vuze"] 5
 assign [class="(?i)thunderbird"] 5
 ## w6 remote desktop
 assign [class="(?i)rdesktop"] 6
+assign [class="(?i).*?xfreeerdp.*"] 6
 ## w7 virtual host
 assign [class="(?i)VirtualBox.*"] 7
 assign [class="(?i)vmware.*"] 7
