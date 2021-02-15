@@ -92,9 +92,9 @@ alias -s html=google-chrome-stable \
 
 alias swf="sudo rc-service net.wlan0 start"
 alias rswf="sudo rc-service net.wlan0 restart"
-alias vpninit="shadowsocks-redir-iptables A ~/.config/shadowsocks.json"
-alias vpntoggle="shadowsocks-redir-iptables T ~/.config/shadowsocks.json"
-alias vpnoff="shadowsocks-redir-iptables D ~/.config/shadowsocks.json"
+alias vpninit="sudo rc-service ipset start;vpn-redir-iptables A 45.136.185.61:1280"
+alias vpntoggle="vpn-redir-iptables T"
+alias vpnoff="vpn-redir-iptables D"
 alias hdof="monitor-op hdmi-off"
 alias hdw="monitor-op hdmi-on; i3-msg '[workspace=\"[^5]\"] move workspace to output primary' > /dev/null"
 alias hdo="monitor-op hdmi-on"
