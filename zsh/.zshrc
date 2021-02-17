@@ -92,7 +92,8 @@ alias -s html=google-chrome-stable \
 
 alias swf="sudo rc-service net.wlan0 start"
 alias rswf="sudo rc-service net.wlan0 restart"
-alias vpninit="sudo rc-service ipset start;vpn-redir-iptables A 45.136.185.61:1280"
+# depend on rc-service ipset
+alias vpninit="vpn-redir-iptables A 45.136.185.61:1280"
 alias vpntoggle="vpn-redir-iptables T"
 alias vpnoff="vpn-redir-iptables D"
 alias hdof="monitor-op hdmi-off"

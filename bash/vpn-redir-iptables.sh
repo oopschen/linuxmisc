@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$#" -lt 1 ]; then
-	echo -e "mode: A add | D delete | T toggle temporary | S status | I init"
+	echo -e "mode: A add server:port | D delete | T toggle temporary | S status | I init server:port"
 	exit 1
 fi
 
@@ -13,21 +13,6 @@ localport=${2#*:}
 ipset_name="vpncnipset"
 
 echo -e "sever=$socksserver,localport=$localport"
-
-function delete_chain_by_num() {
-  for n in $($cmd_iptables -t $1 -L $2 --line-number \
-    | grep $3 | grep -vE "^Chain.+" | cut -d ' ' -f 1 | sort -nr)
-  do
-    $cmd_iptables -t $1 -D $2 $n
-  done
-}
-
-function disable_redir() {
-	echo "chain $chainName: disable"
-  delete_chain_by_num nat OUTPUT $chainName
-  delete_chain_by_num mangle PREROUTING $chainName
-  delete_chain_by_num mangle OUTPUT ${chainName}_MASK
-}
 
 # 0 non-exists, 1 exists
 function has_ipset() {
@@ -42,11 +27,13 @@ function has_ipset() {
 function create_or_swap_ipset() {
   ipset_tname=${ipset_name}_t
   if [ "y" == "$(has_ipset $ipset_tname)" ];then
+    echo "delete existed temporary ipset name: $ipset_tname"
     $cmd_ipset destroy $ipset_tname
   fi
   $cmd_ipset create $ipset_tname hash:net hashsize 16384
 
   # ignore private ips
+  echo "add internal private ips and server ips"
   $cmd_ipset add $ipset_tname $socksserver
 	$cmd_ipset add $ipset_tname 0.0.0.0/8
 	$cmd_ipset add $ipset_tname 10.0.0.0/8
@@ -59,7 +46,7 @@ function create_or_swap_ipset() {
 
   # ignore ip in files
   ignoreFile=~/.config/.shadowsocks-redir-ignore
-  echo "check ignore file: $ignoreFile"
+  echo "add ips from ignore file: $ignoreFile"
   if [ -f "$ignoreFile" ]; then
     echo "ignoring ips:  $(wc -l $ignoreFile)"
     for line in $(cat $ignoreFile)
@@ -70,9 +57,11 @@ function create_or_swap_ipset() {
 
   # swap ip
   if [ "y" == "$(has_ipset $ipset_name)" ];then
+    echo "swap ipset"
     $cmd_ipset swap $ipset_tname $ipset_name
     $cmd_ipset destroy $ipset_tname
   else
+    echo "create ipset"
     $cmd_ipset rename $ipset_tname $ipset_name
   fi
 }
@@ -114,10 +103,20 @@ case $mode in
 	;;
 
 	D)
-  disable_redir
   $cmd_ip route del local default dev lo table 100
   $cmd_ip rule del fwmark 1 lookup 100
-  $cmd_ipset destroy $ipset_name
+
+	$cmd_iptables -t nat -D OUTPUT -p tcp -j $chainName
+	$cmd_iptables -t nat -F $chainName
+	$cmd_iptables -t nat -X $chainName
+
+  $cmd_iptables -t mangle -D PREROUTING -j $chainName
+	$cmd_iptables -t mangle -F $chainName
+	$cmd_iptables -t mangle -X $chainName
+
+  $cmd_iptables -t mangle -D OUTPUT -j ${chainName}_MASK
+	$cmd_iptables -t mangle -F ${chainName}_MASK
+	$cmd_iptables -t mangle -X ${chainName}_MASK
 
 	echo "Done......"
 
@@ -132,7 +131,9 @@ case $mode in
       $cmd_iptables -t mangle -A OUTPUT -j ${chainName}_MASK
 			msg=UP
 		else
-      disable_redir
+      $cmd_iptables -t nat -D OUTPUT -p tcp -j $chainName
+      $cmd_iptables -t mangle -D PREROUTING -j $chainName
+      $cmd_iptables -t mangle -D OUTPUT -j ${chainName}_MASK
 			msg=DOWN
 		fi
 		echo "$msg Done......"
