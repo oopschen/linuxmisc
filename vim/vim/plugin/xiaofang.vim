@@ -60,7 +60,7 @@ function! FnPandocHtml5Command(isOpen, noCompileIfMissing)
     return
   endif
 
-  exec pandocCmd . ' html5 ' . '--toc --wrap=preserve -c ~/.pandoc/css/github.css' . ' -o ' . outputFilePath
+  exec pandocCmd . ' html5 ' . '--toc -c ~/.pandoc/css/github.css' . ' -o ' . outputFilePath
 endfunction
 
 

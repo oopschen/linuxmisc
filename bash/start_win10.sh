@@ -21,6 +21,7 @@ qemu-system-x86_64 --enable-kvm --name win10 -m 6G -machine pc,accel=kvm \
   -display sdl -vga std -device qemu-xhci \
   -device usb-host,vendorid=0x05ac,productid=0x12a8 \
   -device usb-host,vendorid=0x1ff7,productid=0x0200 \
+  -device usb-host,vendorid=0x05ac,productid=0x12a8 \
   -cpu $cpuinfo$existedcpufeatures -smp sockets=1,cores=3,threads=2 \
   -object memory-backend-ram,size=6G,id=m0 \
   -numa node,nodeid=0,memdev=m0 -numa cpu,node-id=0 \
