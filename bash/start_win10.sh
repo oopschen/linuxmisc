@@ -15,10 +15,13 @@ done
 
 cpuinfo="Skylake-Client-noTSX-IBRS"
 
+# sound card
+#-soundhw hda \
 qemu-system-x86_64 --enable-kvm --name win10 -m 6G -machine pc,accel=kvm \
   -drive file=${diskdir},format=qcow2,index=1,media=disk \
   -nic user,ipv6=off,smb=${sharedir}  -boot c \
-  -display sdl -vga std -device qemu-xhci \
+  -display sdl -vga std \
+  -device qemu-xhci \
   -device usb-host,vendorid=0x05ac,productid=0x12a8 \
   -device usb-host,vendorid=0x1ff7,productid=0x0200 \
   -device usb-host,vendorid=0x05ac,productid=0x12a8 \

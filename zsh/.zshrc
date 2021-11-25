@@ -103,6 +103,8 @@ alias hdo="monitor-op hdmi-on"
 alias hdm="monitor-op hdmi-mirror"
 alias gw="./gradlew"
 alias cuzp="unzip -O cp936"
+alias mnt="sudo mount"
+alias umt="sudo umount"
 ### wpa_cli commands alias
 alias ws="sudo wpa_cli -i wlan0"
 alias wsl="sudo wpa_cli -i wlan0 list_networks"
