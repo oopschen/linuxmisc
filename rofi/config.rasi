@@ -1,6 +1,6 @@
 configuration {
     modi: "window,run,ssh,combi";
-    combi-modi: "run,drun,window,ssh";
+    combi-modi: "drun,window,ssh,run";
     show-icons: true;
     theme: "Monokai";
     ssh-command: "tmux-wrapper ssh {ssh-client} {host} [-p {port}]";

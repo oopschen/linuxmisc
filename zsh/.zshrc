@@ -4,7 +4,8 @@ export NODE_HOME=~/opt/node-v14.15.1-linux-x64
 export PATH=$NODE_HOME/bin:$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
-export FZF_DEFAULT_COMMAND='rg --files -L -i '
+export FZF_DEFAULT_COMMAND="rg --files -L -i"
+export FZF_DEFAULT_OPTS="-m --print0 --history=$HOME/.fzf_history --history-size=200 --cycle --prompt=\"search: >\" "
 export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
 export SOLANA_HOME=~/opt/solana-release
 #export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
@@ -104,6 +105,7 @@ alias hdm="monitor-op hdmi-mirror"
 alias gw="./gradlew"
 alias cuzp="unzip -O cp936"
 alias mnt="sudo mount"
+alias mntw="sudo mount -o uid=work,iocharset=utf8"
 alias umt="sudo umount"
 ### wpa_cli commands alias
 alias ws="sudo wpa_cli -i wlan0"
@@ -111,6 +113,9 @@ alias wsl="sudo wpa_cli -i wlan0 list_networks"
 alias wss="sudo wpa_cli -i wlan0 select_network"
 alias alx="alsamixer"
 alias netw="watch -n5 \"ip a\""
+alias v="vim"
+alias ffcp="fzf | xargs -I{} --null cp {}"
+alias ffmv="fzf | xargs -I{} --null mv {}"
 
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

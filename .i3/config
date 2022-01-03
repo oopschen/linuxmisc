@@ -221,29 +221,32 @@ assign [class="(?i)^st-"] 1
 ## w2 web: chrome
 assign [class="(?i)google-chrome"] 2
 ## w3 ide: idea
-assign [class="(?i)jetbrains.*"] 10
-assign [title="(?i)umlet"] 3
 assign [class="(?i)wps"] 3
 assign [class="(?i)et"] 3
 assign [class="(?i)wpp"] 3
-## w4 video: mpv
+## w4 media
 assign [class="(?i)mpv"] 4
 assign [class="(?i)^mupdf"] 4
-## w5 download: vuze
+## w5 design
 assign [class="(?i)vuze"] 5
 assign [class="(?i)thunderbird"] 5
 ## w6 remote desktop
-assign [class="(?i)rdesktop"] 6
-assign [class="(?i).*?xfreeerdp.*"] 6
 ## w7 virtual host
 assign [class="(?i)VirtualBox.*"] 7
 assign [class="(?i)vmware.*"] 7
 assign [class="(?i)qemu-system.+"] 7
-# spoon
-assign [title="(?i)spoon.*"] 8
+assign [class="(?i)rdesktop"] 7
+assign [class="(?i).*?xfreeerdp.*"] 7
+# w8 deisgner
 assign [title="(?i)dia"] 8
-assign [class="(?i)mysql-workbench-bin"] 8
-assign [class="(?i)dbeaver.*"] 8
+assign [title="(?i)umlet"] 8
+assign [title="(?i)xmind"] 8
+# w9 misc
+# w0 dev
+assign [class="(?i)jetbrains.*"] 10
+assign [class="(?i)mysql-workbench-bin"] 10
+assign [class="(?i)dbeaver.*"] 10
+assign [title="(?i)spoon.*"] 10
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status

@@ -3,7 +3,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 V2RAY_CONFIG="/etc/v2ray.json"
-V2RAY_COMMAND="/usr/local/bin/v2ray/v2ray"
+V2RAY_COMMAND="/usr/local/bin/v2ray"
 pidfile="/run/${RC_SVCNAME}.pid"
 
 depend() {
