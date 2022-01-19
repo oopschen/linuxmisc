@@ -212,10 +212,10 @@ focus_wrapping yes
 ### ui custimize
 client.background #272827
 client.focused          #657b83 #272827 #B06534 #B06534   #657b83
-client.unfocused        #657b83 #272827 #657b83 #272827   #657b83
-client.focused_inactive #657b83 #272827 #657b83 #272827   #657b83
-client.urgent           #657b83 #272827 #EB3F46 #272827   #657b83
-client.placeholder      #657b83 #272827 #657b83 #272827   #657b83
+client.unfocused        #657b83 #272827 #E7F5E0 #E7F5E0   #657b83
+client.focused_inactive #657b83 #272827 #E7F5E0 #E7F5E0   #657b83
+client.urgent           #657b83 #272827 #EB3F46 #E7F5E0   #657b83
+client.placeholder      #657b83 #272827 #E7F5E0 #E7F5E0   #657b83
 
 ### window assigment
 for_window [class="(?i)mpv"] fullscreen
