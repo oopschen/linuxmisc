@@ -1,7 +1,7 @@
 # i3 config file (v4)
 # i3 config modified by Ray
-# @since 1.1
-# @date 2015.08.01
+# @since 1.2
+# @date 2021.01.19
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
@@ -18,7 +18,7 @@
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Source Code Pro 15px
+font pango:Source Code Pro Bold 11px
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -198,19 +198,26 @@ exec st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:tr
 default_orientation auto
 workspace_layout stacking
 workspace_auto_back_and_forth yes
-default_floating_border pixel 1
-default_border none
-hide_edge_borders vertical
+default_floating_border pixel 3
+default_border normal
+hide_edge_borders smart
 focus_follows_mouse no
-client.focused #81bd00 #285577 #ffffff #2e9ef4
-
+title_align center
 mouse_warping output
 popup_during_fullscreen leave_fullscreen
 floating_minimum_size 150 x 300
 floating_maximum_size 760 x 800
 focus_wrapping yes
 
+### ui custimize
+client.background #272827
+client.focused          #657b83 #272827 #B06534 #B06534   #657b83
+client.unfocused        #657b83 #272827 #657b83 #272827   #657b83
+client.focused_inactive #657b83 #272827 #657b83 #272827   #657b83
+client.urgent           #657b83 #272827 #EB3F46 #272827   #657b83
+client.placeholder      #657b83 #272827 #657b83 #272827   #657b83
 
+### window assigment
 for_window [class="(?i)mpv"] fullscreen
 for_window [class="Dia" window_role="toolbox_window"] floating enable, resize set 200 600
 
@@ -255,19 +262,19 @@ bar {
     status_command i3status
     mode hide
     modifier none
-    position top
+    position bottom
     tray_output none
-    font pango:Source Code Pro 12px
+    font pango:Source Code Pro Bold 15px
     workspace_buttons yes
     strip_workspace_numbers yes
     status_command i3status --config ~/.i3/i3status.conf
     colors {
-      background #39065a
+      background #272827
       statusline #f0a500
       separator #f8f3d4
-      focused_workspace #ea0599 #6a0572 #FFFFFF
-      urgent_workspace #ea0599 #ea0599 #FFFFFF
-      inactive_workspace  #ea0599 #39065a #FFFFFF
-      active_workspace #ea0599 #fa1616 #092532
+      focused_workspace #657b83 #B06534  #FFFFFF
+      urgent_workspace #657b83 #EB3F46  #FFFFFF
+      inactive_workspace  #657b83 #657b83 #FFFFFF
+      active_workspace #657b83 #657b83 #092532
     }
 }
