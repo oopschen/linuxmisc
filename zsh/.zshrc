@@ -5,7 +5,7 @@ export PATH=$NODE_HOME/bin:$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HO
 export DISABLE_AUTO_TITLE='true'
 export TERM=screen-256color
 export FZF_DEFAULT_COMMAND="rg --files -L -i"
-export FZF_DEFAULT_OPTS="-m --print0 --history=$HOME/.fzf_history --history-size=200 --cycle --prompt=\"search: >\" "
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history --history-size=200 --cycle --bind 'ctrl-r:reload($FZF_DEFAULT_COMMAND)'"
 export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
 export SOLANA_HOME=~/opt/solana-release
 #export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
@@ -72,7 +72,7 @@ alias mv='mv -i'
 alias dkc-db='dkc exec ${DBSERVICE:-db} mysql -h ${DBHOST:-127.0.0.1} -u ${DBUSER:-dev} -p${DBPWD:-123456} ${DBNAME:-dev}'
 alias dkc-reup='dkc stop $p; dkc rm -v $p; dkc up -d $p; dkc logs -f $p;'
 alias g='git'
-alias sX='startx'
+alias x='startx'
 alias wip='watch -n 1 ip addr show dev wlan0'
 ## alias suffix
 alias -s html=google-chrome-stable \
@@ -114,8 +114,8 @@ alias wss="sudo wpa_cli -i wlan0 select_network"
 alias alx="alsamixer"
 alias netw="watch -n5 \"ip a\""
 alias v="vim"
-alias ffcp="fzf | xargs -I{} --null cp {}"
-alias ffmv="fzf | xargs -I{} --null mv {}"
+alias ffcp="fzf -m --print0 --prompt=\"search: >\" | xargs -I{} --null cp {}"
+alias ffmv="fzf -m --print0 --prompt=\"search: >\" | xargs -I{} --null mv {}"
 
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

@@ -190,6 +190,7 @@ bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir 
 exec --no-startup-id dunst
 exec --no-startup-id fcitx-autostart
 exec google-chrome-stable
+exec firefox-bin
 exec thunderbird-bin
 exec --no-startup-id libinput-gestures-setup autostart && libinput-gestures-setup start
 exec st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
@@ -205,8 +206,8 @@ focus_follows_mouse no
 title_align center
 mouse_warping output
 popup_during_fullscreen leave_fullscreen
-floating_minimum_size 150 x 300
-floating_maximum_size 760 x 800
+floating_minimum_size 200 x 300
+floating_maximum_size 768 x 768
 focus_wrapping yes
 
 ### ui custimize
@@ -219,7 +220,8 @@ client.placeholder      #657b83 #272827 #E7F5E0 #E7F5E0   #657b83
 
 ### window assigment
 for_window [class="(?i)mpv"] fullscreen
-for_window [class="Dia" window_role="toolbox_window"] floating enable, resize set 200 600
+for_window [class="(?i)qemu-system"] fullscreen
+for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resize set 200 600
 
 # assign window 2 workspace
 ## w1 terminal: urxvt
@@ -227,6 +229,8 @@ assign [class="(?i)urxvt"] 1
 assign [class="(?i)^st-"] 1
 ## w2 web: chrome
 assign [class="(?i)google-chrome"] 2
+assign [class="(?i)brave-browser"] 2
+assign [class="(?i)firefox"] 2
 ## w3 ide: idea
 assign [class="(?i)wps"] 3
 assign [class="(?i)et"] 3
@@ -249,6 +253,7 @@ assign [title="(?i)dia"] 8
 assign [title="(?i)umlet"] 8
 assign [title="(?i)xmind"] 8
 # w9 misc
+assign [title="(?i)baidunetdisk"] 9
 # w0 dev
 assign [class="(?i)jetbrains.*"] 10
 assign [class="(?i)mysql-workbench-bin"] 10
