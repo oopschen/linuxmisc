@@ -12,3 +12,6 @@ fi
 
 ripquerier -i $downloadfile -t ipv4 -s allocated -s assigned -c HK -c CN \
   | tail -n +5 > $destfile
+
+# update ipset
+sudo ipset save > /tmp/.rule-save

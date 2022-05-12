@@ -18,7 +18,7 @@ if [[ "xpre" = "x$WHEN" ]]; then
     /usr/bin/nvidia-sleep.sh "hibernate"
   fi
 elif [[ "xpost" = "x$WHEN" ]]; then
-  sleep 2
+  sleep 1
   /usr/bin/logger -t "$WHAT" -s "nvidia-sleep.sh $WHEN"
   /usr/bin/nvidia-sleep.sh "resume" &
 fi

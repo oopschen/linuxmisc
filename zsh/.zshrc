@@ -116,6 +116,12 @@ alias netw="watch -n5 \"ip a\""
 alias v="vim"
 alias ffcp="fzf -m --print0 --prompt=\"search: >\" | xargs -I{} --null cp {}"
 alias ffmv="fzf -m --print0 --prompt=\"search: >\" | xargs -I{} --null mv {}"
+alias rcs="sudo rc-service"
+### desktop profile selector
+alias dsk-w="hdw; vpninit"
+alias dsk-h="vpninit; netrp w"
+### dingtalk
+alias dingfix="pgrep -f ding | xargs -I{} kill -9 {};rm -rf /home/work/.config/DingTalk/userdata/dump"
 
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

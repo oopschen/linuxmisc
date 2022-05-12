@@ -177,10 +177,9 @@ bindsym $mod+b bar hidden_state toggle
 # bindsym $mod+Shift+j move container to output left
 # bindsym $mod+Shift+r move container to output right
 
-bindsym $mod+Shift+t floating toggle
 bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
-bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
+bindsym $mod+Return exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
 bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
@@ -189,9 +188,9 @@ bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir 
 # auto startups
 exec --no-startup-id dunst
 exec --no-startup-id fcitx-autostart
-exec google-chrome-stable
-exec firefox-bin
-exec thunderbird-bin
+exec --no-startup-id google-chrome-stable
+exec /opt/apps/com.alibabainc.dingtalk/files/Elevator.sh
+exec --no-startup-id thunderbird-bin
 exec --no-startup-id libinput-gestures-setup autostart && libinput-gestures-setup start
 exec st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 
@@ -200,14 +199,14 @@ default_orientation auto
 workspace_layout stacking
 workspace_auto_back_and_forth yes
 default_floating_border pixel 3
-default_border normal
+default_border none
 hide_edge_borders smart
 focus_follows_mouse no
 title_align center
 mouse_warping output
 popup_during_fullscreen leave_fullscreen
-floating_minimum_size 200 x 300
-floating_maximum_size 768 x 768
+floating_minimum_size 200 x 100
+floating_maximum_size 1024 x 768
 focus_wrapping yes
 
 ### ui custimize
@@ -223,24 +222,23 @@ for_window [class="(?i)mpv"] fullscreen
 for_window [class="(?i)qemu-system"] fullscreen
 for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resize set 200 600
 
-# assign window 2 workspace
-## w1 terminal: urxvt
-assign [class="(?i)urxvt"] 1
-assign [class="(?i)^st-"] 1
+# assign workspace
 ## w2 web: chrome
 assign [class="(?i)google-chrome"] 2
 assign [class="(?i)brave-browser"] 2
 assign [class="(?i)firefox"] 2
-## w3 ide: idea
+## w3 office
 assign [class="(?i)wps"] 3
 assign [class="(?i)et"] 3
 assign [class="(?i)wpp"] 3
 ## w4 media
 assign [class="(?i)mpv"] 4
 assign [class="(?i)^mupdf"] 4
-## w5 design
+## w5 communication
 assign [class="(?i)vuze"] 5
 assign [class="(?i)thunderbird"] 5
+assign [class="(?i)com.alibabainc.dingtalk"] 5
+assign [class="(?i)weixin"] 5
 ## w6 remote desktop
 ## w7 virtual host
 assign [class="(?i)VirtualBox.*"] 7
