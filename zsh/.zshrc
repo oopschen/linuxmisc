@@ -122,6 +122,7 @@ alias dsk-w="hdw; vpninit"
 alias dsk-h="vpninit; netrp w"
 ### dingtalk
 alias dingfix="pgrep -f ding | xargs -I{} kill -9 {};rm -rf /home/work/.config/DingTalk/userdata/dump"
+alias pdm="podman"
 
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

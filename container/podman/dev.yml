@@ -20,6 +20,8 @@ spec:
       volumeMounts:
         - name: pg-admin-data
           mountPath: /var/lib/pgadmin
+        - name: pg-admin-log
+          mountPath: /var/log/pgadmin
 
     - name: postgres
       image: docker.io/library/postgres:14-alpine
@@ -36,6 +38,15 @@ spec:
         - name: pg-init-db
           mountPath: /docker-entrypoint-initdb.d/init-db.sh
 
+  initContainers:
+    - name: change-pgadmin-volume-perms
+      image: docker.io/library/busybox
+      command: ["/bin/chown", "-R", "5050:5050", "/var/lib/pgadmin", "/var/log/pgadmin"]
+      volumeMounts:
+        - name: pg-admin-data
+          mountPath: /var/lib/pgadmin
+        - name: pg-admin-log
+          mountPath: /var/log/pgadmin
 
   volumes:
     - name: pg-data
@@ -49,3 +60,7 @@ spec:
     - name: pg-admin-data
       persistentVolumeClaim:
         claimName: pg-admin-data
+
+    - name: pg-admin-log
+      persistentVolumeClaim:
+        claimName: pg-admin-log
