@@ -118,8 +118,8 @@ alias ffcp="fzf -m --print0 --prompt=\"search: >\" | xargs -I{} --null cp {}"
 alias ffmv="fzf -m --print0 --prompt=\"search: >\" | xargs -I{} --null mv {}"
 alias rcs="sudo rc-service"
 ### desktop profile selector
-alias dsk-w="hdw; vpninit"
-alias dsk-h="vpninit; netrp w"
+alias dk-w="hdw; vpninit"
+alias dk-h="vpninit; netrp w"
 ### dingtalk
 alias dingfix="pgrep -f ding | xargs -I{} kill -9 {};rm -rf /home/work/.config/DingTalk/userdata/dump"
 alias pdm="podman"

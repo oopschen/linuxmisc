@@ -1,0 +1,8 @@
+# rename wlp interface to wlan0
+SUBSYSTEM=="net", ACTION=="add", SYSFS{address}=="18:56:80:1e:09:06", KERNEL=="wlp*", NAME="wlan0", ATTR{tx_queue_len}="3000"
+# rename ethernet interface to eth
+SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", KERNEL=="enp*", NAME="eth${}"
+
+# hotplug ethernet
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth*", RUN+="net.sh eth0 start", ATTR{tx_queue_len}="3000"
+SUBSYSTEM=="net", ACTION=="remove", KERNEL=="eth*",  RUN+="net.sh eth0 stop"

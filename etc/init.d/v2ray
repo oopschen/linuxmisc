@@ -8,6 +8,7 @@ pidfile="/run/${RC_SVCNAME}.pid"
 
 depend() {
     need net
+    use logger
 }
 
 checkconfig() {

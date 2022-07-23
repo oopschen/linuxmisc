@@ -1,2 +1,0 @@
-SUBSYSTEM=="net", ACTION=="add", ATTRS{idVendor}=="0x0fe6", ATTRS{idProduct}=="0x9900", RUN="/sbin/rc-service net.eth0 start"
-SUBSYSTEM=="net", ACTION=="remove", ATTRS{idVendor}=="0x0fe6", ATTRS{idProduct}=="0x9900", RUN="/sbin/rc-service net.eth0 stop"
