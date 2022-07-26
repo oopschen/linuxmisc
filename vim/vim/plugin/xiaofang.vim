@@ -3,7 +3,7 @@
 "
 "
 " Author: Chen Lei linxray@gmail.com
-" Last Change: 2019.04.10
+" Last Change: 2022.07.25
 "
 
 if exists("xiaofang")
@@ -40,63 +40,6 @@ command! -bang -nargs=* Rg call fzf#vim#grep(g:rg_command .shellescape(<q-args>)
 :nmap <C-n> :Rg<CR>
 :nmap <C-b> :Buffers<CR>
 
-" pandoc html
-nmap pah :call FnPandocHtml5Command(1, 0)<CR>
-
-function! FnPandocHtml5Command(isOpen, noCompileIfMissing)
-  let filePrefix = 'autogen-pandoc-'
-  if exists("*strftime")
-    let filePrefix = filePrefix . strftime('%Y-%m-%d-')
-  endif
-
-  let outputFilePath = '/tmp/' . filePrefix . fnamemodify(expand('%'), ':t:r') . '.html'
-  let pandocCmd = 'Pandoc'
-
-  if a:isOpen
-    let pandocCmd = pandocCmd . '!'
-  endif
-
-  if a:noCompileIfMissing && !filereadable(outputFilePath)
-    return
-  endif
-
-  exec pandocCmd . ' html5 ' . '--toc -c ~/.pandoc/css/github.css' . ' -o ' . outputFilePath
-endfunction
-
-
-function! FnPandocOpen(file)
-   let file = shellescape(fnamemodify(a:file, ':p'))
-   let file_extension = fnamemodify(a:file, ':e')
-
-   if file_extension is? 'pdf'
-     if !empty($PDFVIEWER)
-       return expand('$PDFVIEWER') . ' ' . file
-     elseif executable('zathura')
-       return 'zathura ' . file
-     elseif executable('mupdf')
-       return 'mupdf ' . file
-     endif
-   elseif file_extension is? 'html'
-     if !empty($BROWSER)
-       return expand('$BROWSER') . ' ' . file
-     elseif executable('firefox')
-       return 'firefox ' . file
-     elseif executable('chromium')
-       return 'chromium ' . file
-     elseif executable('google-chrome-stable')
-       return 'google-chrome-stable ' . file
-     endif
-   elseif file_extension is? 'odt' && executable('okular')
-     return 'okular ' . file
-   elseif file_extension is? 'epub' && executable('okular')
-     return 'okular ' . file
-   else
-     return 'xdg-open ' . file
-   endif
-endfunction
-
-let g:pandoc#command#custom_open = "FnPandocOpen"
-
 " coc.vim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -122,3 +65,36 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
+" pandoc
+function! FnPandocOpen(file)
+	let file = shellescape(fnamemodify(a:file, ':p'))
+	let file_extension = fnamemodify(a:file, ':e')
+	if file_extension is? 'pdf'
+		if !empty($PDFVIEWER)
+			return expand('$PDFVIEWER') . ' ' . file
+		elseif executable('zathura')
+			return 'zathura ' . file
+		elseif executable('mupdf')
+			return 'mupdf ' . file
+		endif
+	elseif file_extension is? 'html'
+		if !empty($BROWSER)
+			return expand('$BROWSER') . ' ' . file
+		elseif executable('firefox')
+			return 'firefox ' . file
+		elseif executable('firefox-bin')
+			return 'firefox-bin ' . file
+		elseif executable('chromium')
+			return 'chromium ' . file
+		elseif executable('google-chrome-stable')
+			return 'google-chrome-stable ' . file
+		endif
+	elseif file_extension is? 'odt' && executable('okular')
+		return 'okular ' . file
+	elseif file_extension is? 'epub' && executable('okular')
+		return 'okular ' . file
+	else
+		return 'xdg-open ' . file
+	endif
+endfunction 
+" end
