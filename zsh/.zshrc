@@ -133,7 +133,5 @@ export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 #####
 
-## git prompt
-source /usr/share/git/git-prompt.sh
-setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
-precmd () { __git_ps1 "%n" ":%~$ " "|%s" }
+## enable builtin completion
+compinit

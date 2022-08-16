@@ -9,12 +9,13 @@ function print_help {
 print_help
 
 isStop=0
+cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig' | sort -d)
+
 while [[ "0" == "$isStop" ]]; do
   echo -e "Input command: "
   read -r cmd cmdArg
   case "$cmd" in
     list|ls)
-      cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig' | sort -d)
       i=1
       for cfg in $cfgfiles
       do
@@ -25,13 +26,14 @@ while [[ "0" == "$isStop" ]]; do
       ;;
 
     load|ld)
+      ## load by name
       inFile=$cmdArg
-      cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig')
       if [ -f ~/.tmuxp/$inFile.yaml ]; then
         tmuxp load $inFile
         break
       fi
 
+      ## load by no
       i=1
       for cfg in $cfgfiles
       do
@@ -41,7 +43,6 @@ while [[ "0" == "$isStop" ]]; do
         fi
         i=$(expr 1 + $i)
       done
-      echo -e ""
       ;;
 
     e)

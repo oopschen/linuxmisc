@@ -223,23 +223,25 @@ for_window [class="(?i)mpv"] fullscreen
 for_window [class="(?i)qemu-system"] fullscreen
 for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resize set 200 600
 
-# assign workspace
-## w2 web: chrome
-assign [class="(?i)google-chrome"] 2
-assign [class="(?i)brave-browser"] 2
-assign [class="(?i)firefox"] 2
+## w1 web: chrome
+assign [class="(?i)google-chrome"] 1
+assign [class="(?i)brave-browser"] 1
+assign [class="(?i)firefox"] 1
+for_window [class="(?i)firefox"] move --no-auto-back-and-forth container to workspace 1
+for_window [class="(?i)google-chrome"] --no-auto-back-and-forth move window to workspace 1
+## w2 office
+assign [class="(?i)com.alibabainc.dingtalk"] 2
+assign [class="(?i)weixin"] 2
 ## w3 office
-assign [class="(?i)wps"] 3
-assign [class="(?i)et"] 3
-assign [class="(?i)wpp"] 3
+assign [class="(?i)^wps$"] 3
+assign [class="(?i)^et$"] 3
+assign [class="(?i)^wpp$"] 3
 ## w4 media
 assign [class="(?i)mpv"] 4
 assign [class="(?i)^mupdf"] 4
 ## w5 communication
 assign [class="(?i)vuze"] 5
 assign [class="(?i)thunderbird"] 5
-assign [class="(?i)com.alibabainc.dingtalk"] 5
-assign [class="(?i)weixin"] 5
 ## w6 remote desktop
 ## w7 virtual host
 assign [class="(?i)VirtualBox.*"] 7
@@ -258,6 +260,7 @@ assign [class="(?i)jetbrains.*"] 10
 assign [class="(?i)mysql-workbench-bin"] 10
 assign [class="(?i)dbeaver.*"] 10
 assign [title="(?i)spoon.*"] 10
+assign [class="(?i)st-256color"] 10
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
