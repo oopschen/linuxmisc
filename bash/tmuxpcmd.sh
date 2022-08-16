@@ -14,7 +14,7 @@ while [[ "0" == "$isStop" ]]; do
   read -r cmd cmdArg
   case "$cmd" in
     list|ls)
-      cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig')
+      cfgfiles=$(find ~/.tmuxp/ -type f -iname '*.yaml' | sed -re 's@^.*/([^.]+).yaml@\1@ig' | sort -d)
       i=1
       for cfg in $cfgfiles
       do
