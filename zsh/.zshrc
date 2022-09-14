@@ -50,8 +50,6 @@ zplug "gradle/gradle-completion", from:github, as:command
 zplug load
 
 ####### end
-# bugfix ctrl-z not work https://github.com/zplug/zplug/issues/322
-test -f $_zplug_lock && rm $_zplug_lock
 
 # options for zsh
 setopt extendedglob
@@ -62,6 +60,8 @@ setopt appendhistory histignorealldups incappendhistory
 SAVEHIST=50
 HISTFILE=~/.zsh_history
 bindkey -v
+## enable builtin completion
+compinit
 
 #alias
 # thanks to z plugin: alias ds='dirs -v'
@@ -132,6 +132,3 @@ export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 #####
-
-## enable builtin completion
-compinit

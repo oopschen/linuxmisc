@@ -141,7 +141,7 @@ bindsym $alt+i move workspace to output up
 bindsym $alt+k move workspace to output down
 
 
-bindsym $alt+Shift+p move container to output primay
+bindsym $alt+Shift+p move container to output primary
 bindsym $alt+Shift+h move container to output left
 bindsym $alt+Shift+l move container to output right
 bindsym $alt+Shift+i move container to output up
@@ -206,7 +206,7 @@ focus_follows_mouse no
 title_align center
 mouse_warping output
 popup_during_fullscreen leave_fullscreen
-floating_minimum_size 200 x 100
+floating_minimum_size 0 x 0
 floating_maximum_size 1024 x 768
 focus_wrapping yes
 
@@ -227,8 +227,8 @@ for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resiz
 assign [class="(?i)google-chrome"] 1
 assign [class="(?i)brave-browser"] 1
 assign [class="(?i)firefox"] 1
-for_window [class="(?i)firefox"] move --no-auto-back-and-forth container to workspace 1
-for_window [class="(?i)google-chrome"] --no-auto-back-and-forth move window to workspace 1
+for_window [class="(?i)firefox"] move --no-auto-back-and-forth window to workspace 1
+for_window [class="(?i)google-chrome"] move --no-auto-back-and-forth window to workspace 1
 ## w2 office
 assign [class="(?i)com.alibabainc.dingtalk"] 2
 assign [class="(?i)weixin"] 2
