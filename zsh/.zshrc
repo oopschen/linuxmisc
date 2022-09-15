@@ -1,9 +1,16 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # env
 export JAVA_HOME=~/opt/openjdk/jdk-11
 export NODE_HOME=~/opt/node-v14.15.1-linux-x64
 export PATH=$NODE_HOME/bin:$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
 export DISABLE_AUTO_TITLE='true'
-export TERM=screen-256color
+#export TERM=screen-256color
 export FZF_DEFAULT_COMMAND="rg --files -L -i"
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history --history-size=200 --cycle --bind 'ctrl-r:reload($FZF_DEFAULT_COMMAND)'"
 export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
@@ -25,13 +32,7 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # theme
-#setopt prompt_subst # Make sure prompt is able to be generated properly.
-#zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
-#POWERLEVEL9K_MODE='awesome-fontconfig'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir ssh virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs background_jobs history)
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, defer:3
+zplug romkatv/powerlevel10k, as:theme, depth:1
 #end
 
 # fzf
@@ -132,3 +133,6 @@ export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 #####
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
