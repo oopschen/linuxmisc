@@ -255,6 +255,7 @@ assign [title="(?i)umlet"] 8
 assign [title="(?i)xmind"] 8
 # w9 misc
 assign [title="(?i)baidunetdisk"] 9
+assign [title="(?i)百度网盘"] 9
 # w0 dev
 assign [class="(?i)jetbrains.*"] 10
 assign [class="(?i)mysql-workbench-bin"] 10
