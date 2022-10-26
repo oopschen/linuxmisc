@@ -5,21 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# env
-export JAVA_HOME=~/opt/openjdk/jdk-11
-export NODE_HOME=~/opt/node-v14.15.1-linux-x64
-export PATH=$NODE_HOME/bin:$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
-export DISABLE_AUTO_TITLE='true'
-#export TERM=screen-256color
-export FZF_DEFAULT_COMMAND="rg --files -L -i"
-export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history --history-size=200 --cycle --bind 'ctrl-r:reload($FZF_DEFAULT_COMMAND)'"
-export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
-export SOLANA_HOME=~/opt/solana-release
-#export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
-
-## awesome fonts
-#source ~/.fonts/*.sh
-
 # zplug
 source ~/.zplug/init.zsh
 
@@ -33,23 +18,21 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # theme
 zplug romkatv/powerlevel10k, as:theme, depth:1
-#end
+####### end
 
 # fzf
-zplug "junegunn/fzf-bin", \
-      from:gh-r, \
-      as:command, \
-      rename-to:fzf, \
-      use:"*linux_amd64*"
+zplug "junegunn/fzf", as:command, hook-build: "sh install" 
 
 # z
 zplug "plugins/z", from:oh-my-zsh
 
 # gradle completion
-zplug "gradle/gradle-completion", from:github, as:command
+zplug "gradle/gradle-completion", from:github, depth:1, as:command
 
 zplug load
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 ####### end
 
 # options for zsh
@@ -63,6 +46,12 @@ HISTFILE=~/.zsh_history
 bindkey -v
 ## enable builtin completion
 compinit
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+####### end
+
 
 #alias
 # thanks to z plugin: alias ds='dirs -v'
@@ -128,11 +117,19 @@ alias pdm="podman"
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ### environment
+export JAVA_HOME=~/opt/openjdk/jdk-11
+export NODE_HOME=~/opt/node-v14.15.1-linux-x64
+export PATH=$NODE_HOME/bin:$HOME/.local/bin:$JAVA_HOME/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:$PATH
+#export DISABLE_AUTO_TITLE='true'
+#export TERM=screen-256color
+export FZF_DEFAULT_COMMAND="rg --files -L -i"
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf_history --history-size=200 --cycle --bind 'ctrl-r:reload($FZF_DEFAULT_COMMAND)'"
+export PIPENV_PYPI_MIRROR=https://mirrors.aliyun.com/pypi/simple/
+export SOLANA_HOME=~/opt/solana-release
+#export LD_PRELOAD=/home/wzga/source_codes/wcwidth-icons/libwcwidth-icons.so
 ##### node js
 export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
-#####
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+####### end
