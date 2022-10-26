@@ -21,6 +21,16 @@ case "$group" in
 				/etc/acpi/actions/powerbtn.sh
 				;;
 
+			video)
+				case "$action" in
+					brightnessup|brightnessdown) /etc/acpi/actions/video.sh $action ;;
+					*)	log_unhandled $value;;
+				esac
+				;;
+
+			mute|volumeup|volumedown) /etc/acpi/actions/volume.sh $action;;
+
+
 			# if your laptop doesnt turn on/off the display via hardware
 			# switch and instead just generates an acpi event, you can force
 			# X to turn off the display via dpms.  note you will have to run
@@ -28,8 +38,6 @@ case "$group" in
 			#lid)
 			#	xset dpms force off
 			#	;;
-
-      mute|volumeup|volumedown) /etc/acpi/actions/volume.sh $action ;;
 			*)	log_unhandled $* ;;
 		esac
 		;;
@@ -51,16 +59,10 @@ case "$group" in
 			#*1)
 			#	cpufreq-set -g performance
 			#	;;
+
 			*0)	logger "AC acdapter unattached:$(hprofile power.bat)" ;;
 			*1) logger "AC acdapter attached $(hprofile power.dyn)" ;;
-			*)	log_unhandled $*;;
-		esac
-		;;
-
-	video)
-		case "$action" in
-			brightnessup|brightnessdown) /etc/acpi/actions/video.sh $action ;;
-			*)	log_unhandled $value;;
+			*)	log_unhandled $* ;;
 		esac
 		;;
 
