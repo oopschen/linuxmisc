@@ -21,7 +21,7 @@ zplug romkatv/powerlevel10k, as:theme, depth:1
 ####### end
 
 # fzf
-zplug "junegunn/fzf", as:command, hook-build: "sh install" 
+zplug "junegunn/fzf", as:command, hook-build: "sh install --no-fish" 
 
 # z
 zplug "plugins/z", from:oh-my-zsh
@@ -133,3 +133,5 @@ export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 
 ####### end
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

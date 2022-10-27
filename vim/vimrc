@@ -23,7 +23,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+" use zsh installation instead Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug '~/.zplug/bin/fzf'
 Plug 'junegunn/fzf.vim'
 
 "Plug 'editorconfig/editorconfig-vim'
