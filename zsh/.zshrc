@@ -36,7 +36,7 @@ zplug load
 ####### end
 
 # options for zsh
-setopt extendedglob
+setopt extendedglob 
 DIRSTACKSIZE=7
 setopt autopushd pushdminus pushdsilent pushdtohome
 setopt autolist
@@ -70,6 +70,8 @@ alias -s html=google-chrome-stable \
   doc=wps \
   xlsx=et \
   xls=et \
+  ppt=wpp \
+  pptx=wpp \
   pdf=mupdf \
   png=sxiv \
   jpeg=sxiv \
@@ -135,3 +137,6 @@ export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 ####### end
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#### fixes
+# zplug fixes crtl+z not work: rm ~/.zplug/log/job.lock
