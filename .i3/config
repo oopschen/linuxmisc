@@ -125,9 +125,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 
 # screen saver
 bindsym $mod+Shift+y exec "xset +dpms && xset s on"
@@ -177,27 +175,28 @@ bindsym $mod+b bar hidden_state toggle
 # bindsym $mod+Shift+j move container to output left
 # bindsym $mod+Shift+r move container to output right
 
-bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
-bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
+#bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
+#bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
 bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
 bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
+bindsym $mod+z [class="(?i)st-256color"] scratchpad show, move position 8 10, resize set 1024 65 ppt;
 
 # workspace
 default_orientation auto
 workspace_layout stacking
 workspace_auto_back_and_forth yes
-default_floating_border pixel 3
-default_border none
+default_floating_border normal
+default_border pixel 1
 hide_edge_borders smart
 focus_follows_mouse no
 title_align center
 mouse_warping output
 popup_during_fullscreen leave_fullscreen
 floating_minimum_size 0 x 0
-floating_maximum_size 1024 x 768
+floating_maximum_size 1920 x 1080
 focus_wrapping yes
 
 ### ui custimize
@@ -211,16 +210,21 @@ client.placeholder      #657b83 #272827 #E7F5E0 #E7F5E0   #657b83
 ### window assigment
 for_window [class="(?i)mpv"] fullscreen
 for_window [class="(?i)qemu-system"] fullscreen
-for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resize set 200 600
-
-## w1 web: chrome
-assign [class="(?i)google-chrome"] 1
-assign [class="(?i)brave-browser"] 1
-assign [class="(?i)firefox"] 1
-assign [class="(?i)chromium"] 1
+for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resize set 200 600;
+#### fix chrome popup to wrong workspace
 for_window [class="(?i)firefox"] move --no-auto-back-and-forth window to workspace 1
 for_window [class="(?i)google-chrome"] move --no-auto-back-and-forth window to workspace 1
 for_window [class="(?i)chromium"] move --no-auto-back-and-forth window to workspace 1
+### floating window center
+for_window [floating_from="user"] move position center
+### make termial on startup move to scratchpad
+for_window [class="(?i)st-256color" tiling_from="auto"] move scratchpad
+
+## w1 web: chrome
+assign [class="(?i)google-chrome"] 1
+assign [class="(?i)browser"] 1
+assign [class="(?i)firefox"] 1
+assign [class="(?i)chromium"] 1
 ## w2 office
 assign [class="(?i)com.alibabainc.dingtalk"] 2
 assign [class="(?i)weixin"] 2
@@ -257,6 +261,12 @@ assign [title="(?i)spoon.*"] 10
 assign [class="(?i)st-256color"] 10
 
 
+# workspace output
+workspace 0 output primary
+workspace 1 output primary
+workspace 2 output eDP-1
+workspace 5 output eDP-1
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -290,5 +300,4 @@ exec --no-startup-id gtk-launch com.alibabainc.dingtalk
 exec --no-startup-id gtk-launch weixin-uos
 exec --no-startup-id gtk-launch thunderbird-bin
 exec --no-startup-id libinput-gestures-setup autostart && libinput-gestures-setup start
-exec st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
-exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/work/.i3/workspace/workspace2.json'"
+exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
