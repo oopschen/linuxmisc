@@ -274,9 +274,8 @@ bar {
     mode hide
     modifier none
     position bottom
-    output primary
     tray_output none
-    font pango:Source Code Pro Bold 15px
+    font pango:Source Code Pro 19px
     workspace_buttons yes
     colors {
       background         #393E46
@@ -297,7 +296,7 @@ exec --no-startup-id libinput-gestures-setup autostart start
 exec --no-startup-id fcitx-autostart
 exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 exec --no-startup-id google-chrome-stable
-exec --no-startup-id firefox-bin
+#exec --no-startup-id firefox-bin
 exec --no-startup-id gtk-launch thunderbird-bin
 exec --no-startup-id gtk-launch weixin-uos
 exec --no-startup-id gtk-launch com.alibabainc.dingtalk
