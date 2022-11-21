@@ -182,7 +182,7 @@ bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
-bindsym $mod+z [class="(?i)st-256color"] scratchpad show, move position 8 10, resize set 1024 65 ppt;
+bindsym $mod+z [class="(?i)st-256color"] scratchpad show, move position 60 ppt 3, resize set 40 ppt 40 ppt;
 
 # workspace
 default_orientation auto
@@ -262,7 +262,7 @@ assign [class="(?i)st-256color"] 10
 
 
 # workspace output
-workspace 0 output primary
+workspace 10 output primary
 workspace 1 output primary
 workspace 2 output eDP-1
 workspace 5 output eDP-1
@@ -270,34 +270,35 @@ workspace 5 output eDP-1
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
+    status_command i3status --config ~/.i3/i3status.conf
     mode hide
     modifier none
     position bottom
+    output primary
     tray_output none
     font pango:Source Code Pro Bold 15px
     workspace_buttons yes
-    strip_workspace_numbers yes
-    status_command i3status --config ~/.i3/i3status.conf
     colors {
-      background #272827
-      statusline #f0a500
-      separator #f8f3d4
-      focused_workspace #657b83 #B06534  #FFFFFF
-      urgent_workspace #657b83 #EB3F46  #FFFFFF
-      inactive_workspace  #657b83 #657b83 #FFFFFF
-      active_workspace #657b83 #657b83 #092532
+      background         #393E46
+      statusline         #6D9886
+      separator          #F2E7D5
+      focused_workspace  #393E46 #EC9B3B #FFFFFF
+      urgent_workspace   #393E46 #F24C4C #293462
+      inactive_workspace #393E46 #EDEDED #3C2C3E
+      active_workspace   #393E46 #FFBC80 #FFFFFF
     }
 }
 
 ##### run after all config
 # auto startups
 exec --no-startup-id dunst
+exec --no-startup-id libinput-gestures-setup autostart start
+
 exec --no-startup-id fcitx-autostart
+exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id firefox-bin
-exec --no-startup-id gtk-launch com.alibabainc.dingtalk
-exec --no-startup-id gtk-launch weixin-uos
 exec --no-startup-id gtk-launch thunderbird-bin
-exec --no-startup-id libinput-gestures-setup autostart && libinput-gestures-setup start
-exec --no-startup-id st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal
+exec --no-startup-id gtk-launch weixin-uos
+exec --no-startup-id gtk-launch com.alibabainc.dingtalk
+#exec --no-startup-id "i3-msg 'workspace 2, append_layout ~/.i3/workspace/workspace2.json;'"

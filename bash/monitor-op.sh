@@ -29,7 +29,7 @@ case "$1" in
 
     case "$1" in
       hdmi-on)
-        xrandr --output $externalMonitor --auto --primary --right-of $mainMonitor
+        xrandr --output $externalMonitor --auto --primary --above $mainMonitor
         ;;
       hdmi-mirror)
         xrandr --output $externalMonitor --auto --primary --same-as $mainMonitor
