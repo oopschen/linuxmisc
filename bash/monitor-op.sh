@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+## Depressed by script ./hdmi-hotplug.sh
+## @Date 2022/11/29
 
 if [ 1 -ne  $# ];then
   echo -e "Usage:\t ./$(basename $0) [hdmi-on|hdmi-off|hdmi-mirror]"

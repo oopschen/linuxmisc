@@ -182,7 +182,7 @@ bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
-bindsym $mod+z [class="(?i)st-256color"] scratchpad show, move position 60 ppt 3, resize set 40 ppt 40 ppt;
+bindsym $mod+z [class="(?i)st-256color"] scratchpad show, resize set 40 ppt 60 ppt, exec "i3-move-position.sh float-cmd \\"(i?)st-256color\\"";
 
 # workspace
 default_orientation auto
@@ -219,6 +219,8 @@ for_window [class="(?i)chromium"] move --no-auto-back-and-forth window to worksp
 for_window [floating_from="user"] move position center
 ### make termial on startup move to scratchpad
 for_window [class="(?i)st-256color" tiling_from="auto"] move scratchpad
+### dingtalk & weixin popup
+for_window [class="(?i)com.alibabainc.dingtalk" title="(?i).*(分享|预览|.doc|.docx|.ppt|.pptx|.xls|.xlsx).*"] floating enable, resize set 60 ppt 75 ppt
 
 ## w1 web: chrome
 assign [class="(?i)google-chrome"] 1
@@ -260,12 +262,6 @@ assign [class="(?i)dbeaver.*"] 10
 assign [title="(?i)spoon.*"] 10
 assign [class="(?i)st-256color"] 10
 
-
-# workspace output
-workspace 10 output primary
-workspace 1 output primary
-workspace 2 output eDP-1
-workspace 5 output eDP-1
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

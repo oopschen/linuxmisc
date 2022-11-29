@@ -1,0 +1,8 @@
+SUBSYSTEM!="net", GOTO="net_network_naming_end"
+
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:e1:99:00:b8:25", NAME="eth0"
+SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="18:56:80:1e:09:06", NAME="wlan0"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="enp*", NAME="eth%n"
+SUBSYSTEM=="net", ACTION=="add", KERNELS=="wlp*", NAME="wlan%n"
+
+LABEL="net_network_naming_end"
