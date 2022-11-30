@@ -17,7 +17,6 @@ case $mode in
         dst_pos_x=$(python -c "import math;print(math.ceil($pos_x + 0.6 * $display_width))")
         dst_pos_y=$(echo "$pos_y + 5" | bc)
         msg="[class=\"$criteria\"] move position $dst_pos_x $dst_pos_y"
-        echo  $msg > /tmp/c
         ;;
     *)
         echo -e "support mode: float-cmd"
