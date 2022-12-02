@@ -182,19 +182,21 @@ bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
-bindsym $mod+z [class="(?i)st-256color"] exec "i3-move-position.sh float-cmd \\"(i?)st-256color\\"", resize set 40 ppt 60 ppt, scratchpad show
+bindsym $mod+slash [class="(?i)st-256color"] exec " i3-move-position.sh float-cmd \\"(i?)st-256color\\" 60", resize set 40 ppt 60 ppt, scratchpad show
+bindsym $alt+Shift+9 [class="(?i)weixin"]  move scratchpad, workspace --no-auto-back-and-forth 8, split h, scratchpad show, floating disable
+bindsym $alt+Shift+0 [class="(?i)weixin"] move scratchpad 
 
 # workspace
 default_orientation auto
 workspace_layout stacking
 workspace_auto_back_and_forth yes
 default_floating_border normal
-default_border pixel 1
+default_border none
 hide_edge_borders smart
 focus_follows_mouse no
 title_align center
 mouse_warping output
-popup_during_fullscreen leave_fullscreen
+popup_during_fullscreen smart
 floating_minimum_size 0 x 0
 floating_maximum_size 1920 x 1080
 focus_wrapping yes
@@ -210,7 +212,6 @@ client.placeholder      #657b83 #272827 #E7F5E0 #E7F5E0   #657b83
 ### window assigment
 for_window [class="(?i)mpv"] fullscreen
 for_window [class="(?i)qemu-system"] fullscreen
-for_window [class="(?i)dia" window_role="toolbox_window"] floating enable, resize set 200 600;
 #### fix chrome popup to wrong workspace
 for_window [class="(?i)firefox"] move --no-auto-back-and-forth window to workspace 1
 for_window [class="(?i)google-chrome"] move --no-auto-back-and-forth window to workspace 1
@@ -220,16 +221,17 @@ for_window [floating_from="user"] move position center
 ### make termial on startup move to scratchpad
 for_window [class="(?i)st-256color" tiling_from="auto"] move scratchpad
 ### dingtalk & weixin popup
-for_window [class="(?i)com.alibabainc.dingtalk" title="(?i).*(分享|预览|.doc|.docx|.ppt|.pptx|.xls|.xlsx).*"] floating enable, resize set 60 ppt 75 ppt
+for_window [class="(?i)com.alibabainc.dingtalk" title="(?i).*(分享|预览|.doc|.docx|.ppt|.pptx|.xls|.xlsx).*"] resize set 60 ppt 75 ppt,floating enable 
 
 ## w1 web: chrome
 assign [class="(?i)google-chrome"] 1
 assign [class="(?i)browser"] 1
 assign [class="(?i)firefox"] 1
 assign [class="(?i)chromium"] 1
-## w2 office
-assign [class="(?i)com.alibabainc.dingtalk"] 2
-assign [class="(?i)weixin"] 2
+## w2 designer
+assign [title="(?i)dia"] 2
+assign [title="(?i)umlet"] 2
+assign [title="(?i)xmind"] 8
 ## w3 office
 assign [class="(?i)^wps$"] 3
 assign [class="(?i)^et$"] 3
@@ -247,10 +249,9 @@ assign [class="(?i)vmware.*"] 7
 assign [class="(?i)qemu-system.+"] 7
 assign [class="(?i)rdesktop"] 7
 assign [class="(?i).*?xfreeerdp.*"] 7
-# w8 deisgner
-assign [title="(?i)dia"] 8
-assign [title="(?i)umlet"] 8
-assign [title="(?i)xmind"] 8
+# w8 empty
+assign [class="(?i)com.alibabainc.dingtalk"] 8
+assign [class="(?i)weixin"] 8
 # w9 misc
 assign [title="(?i)baidunetdisk"] 9
 assign [title="(?i)百度网盘"] 9
@@ -261,6 +262,9 @@ assign [class="(?i)mysql-workbench-bin"] 10
 assign [class="(?i)dbeaver.*"] 10
 assign [title="(?i)spoon.*"] 10
 assign [class="(?i)st-256color"] 10
+
+## no foucs
+no_focus [class="(?i)thunderbird"] 
 
 ## outputs
 workspace   1    output    primary

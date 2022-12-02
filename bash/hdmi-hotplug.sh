@@ -10,7 +10,7 @@ edp_name=$(echo "$edp_status" | cut -d ' ' -f 1)
 cmd_xrandr="/usr/bin/xrandr"
 display_mode=""
 
-mode=$1
+mode="$1:none"
 
 
 if [[ ! -z "$hdmi_status" && ! -z "$edp_status" ]]; then
