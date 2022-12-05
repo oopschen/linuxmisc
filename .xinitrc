@@ -13,4 +13,5 @@ xsetroot -cursor_name left_ptr
 ## auto set display
 hdmi-hotplug.sh
 
-exec dbus-launch --auto-syntax --exit-with-session i3
+machineid=$(cat /etc/machine-id)
+exec dbus-launch --auto-syntax --autolaunch=$machineid --exit-with-session i3

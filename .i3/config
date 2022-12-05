@@ -231,7 +231,7 @@ assign [class="(?i)chromium"] 1
 ## w2 designer
 assign [title="(?i)dia"] 2
 assign [title="(?i)umlet"] 2
-assign [title="(?i)xmind"] 8
+assign [title="(?i)xmind"] 2
 ## w3 office
 assign [class="(?i)^wps$"] 3
 assign [class="(?i)^et$"] 3
