@@ -130,6 +130,7 @@ export SOLANA_HOME=~/opt/solana-release
 export SASS_BINARY_SITE=http://npm.taobao.org/mirrors/node-sass
 export PUPPETEER_DOWNLOAD_HOST=https://npm.taobao.org/mirrors
 export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
+export WORKON_HOME=$HOME/.virtualenvs
 
 ####### end
 
@@ -137,3 +138,6 @@ export ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/
 
 #### fixes
 # zplug fixes crtl+z not work: rm ~/.zplug/log/job.lock
+
+# To customize prompt, run `p10k configure` or edit ~/project/repo/linuxmisc/zsh/.p10k.zsh.
+[[ ! -f ~/project/repo/linuxmisc/zsh/.p10k.zsh ]] || source ~/project/repo/linuxmisc/zsh/.p10k.zsh
