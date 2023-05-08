@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# @Depressed by Notion App
+# #Since 2023/05/08
 
 #### create note command
 ### create-note [note name]

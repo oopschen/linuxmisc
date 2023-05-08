@@ -1,4 +1,6 @@
 #!/bin/bash
+# @Depressed by nftable
+# @Since 2023/05/08
 
 if [ "$#" -lt 1 ]; then
 	echo -e "mode: A add server:port | D delete | T toggle temporary | S status | I init server:port"

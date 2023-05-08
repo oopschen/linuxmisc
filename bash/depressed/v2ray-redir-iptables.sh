@@ -1,4 +1,6 @@
 #!/bin/bash
+# @Depressed by nftable
+# @Since 2023/05/08
 
 if [ "$#" -lt 1 ]; then
 	echo -e "mode: A add | D delete | T toggle temporary"
