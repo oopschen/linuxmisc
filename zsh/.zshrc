@@ -86,10 +86,8 @@ alias -s html=google-chrome-stable \
 alias swf="sudo rc-service net.wlan0 start"
 alias rswf="sudo rc-service net.wlan0 restart"
 # depend on rc-service ipset
-alias vpninit="vpn-redir-iptables A 45.136.185.61:1280"
-alias vpntoggle="vpn-redir-iptables T"
-alias vpnoff="vpn-redir-iptables D"
-alias vpnipset="vpn-redir-iptables I 45.136.185.61:1280"
+alias vpntoggle="v2ray-nft T"
+alias vpnoff="v2ray-nft D"
 alias hdof="monitor-op hdmi-off"
 alias hdw="monitor-op hdmi-on; i3-msg '[workspace=\"[^5]\"] move workspace to output primary' > /dev/null"
 alias hdo="monitor-op hdmi-on"
