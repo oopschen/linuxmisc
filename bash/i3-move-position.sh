@@ -43,6 +43,12 @@ case $mode in
         msg="[class=\"$criteria\"] move position $dst_pos_x $dst_pos_y"
         ;;
 
+    cur-float-cmd-by-instance)
+        dst_pos_x=$(python -c "import math;print(math.ceil($focused_pos_x+ $left_offset_percentage / 100.0 * $focused_pos_width))")
+        dst_pos_y=$(python -c "print($focused_pos_y + 5)")
+        msg="[instance=\"$criteria\"] move position $dst_pos_x $dst_pos_y"
+        ;;
+
     *)
         echo -e "support mode: float-cmd|im\n\tUsage: ./script mode window_criteria left_offset_percentage"
         exit 1

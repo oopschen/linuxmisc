@@ -177,15 +177,26 @@ bindsym $mod+b bar hidden_state toggle
 
 #bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 #bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
-bindsym $mod+t exec "st -f 'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' -e tmuxp load normal"
 bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
-bindsym $mod+slash [class="(?i)st-256color"] exec " i3-move-position.sh cur-float-cmd \\"(i?)st-256color\\" 60", resize set 40 ppt 90 ppt, scratchpad show
 bindsym $alt+Shift+9 [class="(?i)weixin"]  move scratchpad, workspace --no-auto-back-and-forth 8, split h, scratchpad show, floating disable
 bindsym $alt+Shift+0 [class="(?i)weixin"] move scratchpad 
 bindsym $alt+Shift+1 [workspace=".*"] move workspace to output primary
+
+## cmd terminal settings
+bindsym $mod+t exec i3-utils-cmd-term.sh
+bindsym $mod+Shift+t exec st -f \
+    'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold'
+bindsym $mod+slash [instance="(?i)cmdterm"] exec \
+    "i3-move-position.sh cur-float-cmd-by-instance \\"(i?)cmdterm\\" 60", \
+    resize set 40 ppt 90 ppt, scratchpad show
+### make termial on startup move to scratchpad
+for_window [instance="(?i)cmdterm"] move scratchpad, exec \
+    "i3-move-position.sh cur-float-cmd-by-instance \\"(i?)cmdterm\\" 60", \
+    resize set 40 ppt 90 ppt, scratchpad show
+## end 
 
 # workspace
 default_orientation auto
@@ -219,8 +230,6 @@ for_window [class="(?i)google-chrome"] move --no-auto-back-and-forth window to w
 for_window [class="(?i)chromium"] move --no-auto-back-and-forth window to workspace 1
 ### floating window center
 for_window [floating_from="user"] move position center
-### make termial on startup move to scratchpad
-for_window [class="(?i)st-256color" tiling_from="auto"] move scratchpad
 ### dingtalk & weixin popup
 for_window [class="(?i)com.alibabainc.dingtalk" title="(?i).*(分享|预览|.doc|.docx|.ppt|.pptx|.xls|.xlsx).*"] resize set 60 ppt 75 ppt,floating enable 
 ### dia window settings: 1. float toolbox_window & dia ,set size to 800x200
