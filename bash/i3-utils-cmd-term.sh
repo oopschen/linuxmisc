@@ -62,12 +62,11 @@ if [ "1" = "$has_prog_exists" ]; then
         i3wm_display_window "$wm_instance"
     else
         echo "command term already display $has_window_display"
-        exit
     fi
 
 else
     echo "command term launches..."
     nohup st -f \
-        'Source Code Pro For Powerline:pixelsize=15:antialias=true:hinting:true:style=Semibold' \
+        'MesloLGS NF:pixelsize=15:antialias=true:hinting:true:' \
         -n $wm_instance -e tmuxp load normal 2>&1 1>/dev/null &
 fi
