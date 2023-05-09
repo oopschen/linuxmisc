@@ -186,16 +186,11 @@ bindsym $alt+Shift+0 [class="(?i)weixin"] move scratchpad
 bindsym $alt+Shift+1 [workspace=".*"] move workspace to output primary
 
 ## cmd terminal settings
-bindsym $mod+t exec i3-utils-cmd-term.sh
-bindsym $mod+Shift+t exec st -f \
+bindsym $mod+Shift+slash exec st -f \
     'MesloLGS NF:pixelsize=15:antialias=true:hinting:true:'
-bindsym $mod+slash [instance="(?i)cmdterm"] exec \
-    "i3-move-position.sh cur-float-cmd-by-instance \\"(i?)cmdterm\\" 60", \
-    resize set 40 ppt 90 ppt, scratchpad show
+bindsym $mod+slash exec i3-utils-cmd-term.sh toggle
 ### make termial on startup move to scratchpad
-for_window [instance="(?i)cmdterm"] move scratchpad, exec \
-    "i3-move-position.sh cur-float-cmd-by-instance \\"(i?)cmdterm\\" 60", \
-    resize set 40 ppt 90 ppt, scratchpad show
+for_window [instance="(?i)cmdterm"] move scratchpad, exec i3-utils-cmd-term.sh toggle
 ## end 
 
 # workspace
@@ -308,6 +303,7 @@ exec --no-startup-id libinput-gestures-setup autostart start
 exec --no-startup-id fcitx-autostart
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id gtk-launch thunderbird-bin
+exec --no-startup-id i3-utils-cmd-term.sh
 
 #exec --no-startup-id firefox-bin
 #exec --no-startup-id gtk-launch weixin-uos

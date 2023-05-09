@@ -5,6 +5,7 @@
 
 wm_instance=cmdterm
 pattern_cmd_term="st.+\s$wm_instance\s"
+mode=$1
 
 ## function definition
 ###
@@ -40,6 +41,10 @@ function i3wm_display_window() {
     i3-msg "[instance=\"(?i)$1\"] exec i3-move-position.sh cur-float-cmd-by-instance '(i?)$1' 60, resize set 40 ppt 90 ppt, scratchpad show"
 }
 
+function i3wm_indisplay_window() {
+    i3-msg "[instance=\"(?i)$1\"] scratchpad show"
+}
+
 ## function definition end
 
 # query program started
@@ -61,7 +66,13 @@ if [ "1" = "$has_prog_exists" ]; then
         echo "command term displays"
         i3wm_display_window "$wm_instance"
     else
-        echo "command term already display $has_window_display"
+        if [ "toggle" = "$mode" ]; then
+            echo "toggle command term display"
+            i3wm_indisplay_window "$wm_instance"
+        else
+            echo "command term already display $has_window_display"
+        fi
+
     fi
 
 else
