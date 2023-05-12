@@ -181,9 +181,13 @@ bindsym $mod+d exec "rofi -show combi"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
-bindsym $alt+Shift+9 [class="(?i)weixin"]  move scratchpad, workspace --no-auto-back-and-forth 8, split h, scratchpad show, floating disable
-bindsym $alt+Shift+0 [class="(?i)weixin"] move scratchpad 
-bindsym $alt+Shift+1 [workspace=".*"] move workspace to output primary
+#bindsym $alt+Shift+9 [class="(?i)weixin"]  move scratchpad, workspace --no-auto-back-and-forth 8, split h, scratchpad show, floating disable
+#bindsym $alt+Shift+0 [class="(?i)weixin"] move scratchpad 
+
+# main mode: move all workspace except 5 to primary
+bindsym $alt+Shift+1 [workspace=".*"] move workspace to output primary; [workspace="5"] move workspace to output eDP-1-1
+# presentation mode: move  3 to primary
+bindsym $alt+Shift+2 [workspace=".*"] move workspace to output eDP-1-1; [workspace="3"] move workspace to output primary
 
 ## cmd terminal settings
 bindsym $mod+Shift+slash exec st -f \

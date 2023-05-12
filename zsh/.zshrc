@@ -41,7 +41,8 @@ DIRSTACKSIZE=7
 setopt autopushd pushdminus pushdsilent pushdtohome
 setopt autolist
 setopt appendhistory histignorealldups incappendhistory
-SAVEHIST=50
+SAVEHIST=10000
+HISTSIZE=10000
 HISTFILE=~/.zsh_history
 bindkey -v
 ## enable builtin completion
@@ -112,6 +113,10 @@ alias dingfix="pgrep -f com.alibabainc.dingtalk | xargs -I{} kill -9 {};rm -rf /
 #### fix zsh can not suspend(ctrl+z) after zplug update
 alias zsusfix="rm ~/.zplug/log/job.lock"
 alias pdm="podman"
+### system tool alias
+alias sys-upworld="sudo emerge -uDNq @world"
+alias sys-cln-aftup="sudo emerge -q --depclean"
+alias sys-rm="sudo emerge --depclean -q"
 
 export PATH="$SOLANA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 

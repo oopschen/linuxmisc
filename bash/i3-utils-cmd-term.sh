@@ -8,11 +8,11 @@ pattern_cmd_term="st.+\s$wm_instance\s"
 mode=$1
 
 ## function definition
-###
+#
+### @args name_pattern progress name pattern
 # @ reutnr 1 when proccess exists
 function has_prog_started() {
-    pname=$1
-    res=$(pgrep -f $pname)
+    res=$(pgrep -f "$1")
     if [ -z "$res" ]; then
         echo 0
     else
@@ -22,6 +22,7 @@ function has_prog_started() {
 }
 
 ### The window display already
+### @args ins i3wm instance selector
 ### @ return 1 when window is display
 function i3wm_has_window_display() {
     path_res=$(i3-msg -t get_tree | \
@@ -29,12 +30,12 @@ function i3wm_has_window_display() {
 
     if [ 0 -eq $? ] && [ ! -z "$path_res" ]; then
         output_val=$(i3-msg -t get_tree | jq "getpath($path_res) | .output" | tr -d '"')
-        if [ "$output_val" = "__i3" ]; then
-            echo "1"
+        if [[ "$output_val" == "__"* ]]; then
+            echo "0"
             return
         fi
     fi
-    echo "0"
+    echo "1"
 }
 
 function i3wm_display_window() {
@@ -42,13 +43,36 @@ function i3wm_display_window() {
 }
 
 function i3wm_indisplay_window() {
-    i3-msg "[instance=\"(?i)$1\"] scratchpad show"
+    i3-msg "[instance=\"(?i)$1\"] move scratchpad"
+}
+
+### The window is floating
+### @args ins i3wm instance selector
+### @ return 1 when window is floating
+function i3wm_is_window_floating() {
+    path_res=$(i3-msg -t get_tree | \
+        jq -c "path(..|.window_properties?|.instance?|select(.==\"$1\"))|.[:-2]")
+
+    if [ 0 -eq $? ] && [ ! -z "$path_res" ]; then
+        floating_val=$(i3-msg -t get_tree | jq "getpath($path_res) | .floating" | tr -d '"')
+        if [[ "$floating_val" == *"_on" ]]; then
+            echo "1"
+            return
+        fi
+    fi
+    echo "0"
+}
+
+function i3wm_focus_window() {
+    i3-msg "[instance=\"(?i)$1\"] focus"
 }
 
 ## function definition end
 
 # query program started
 # if has started: 
+#   if is not floating mode:
+#     focus
 #   elif it is seen by user:
 #       exit
 #   else
@@ -62,19 +86,23 @@ function i3wm_indisplay_window() {
 has_prog_exists=$(has_prog_started "$pattern_cmd_term")
 if [ "1" = "$has_prog_exists" ]; then
     has_window_display=$(i3wm_has_window_display "$wm_instance")
-    if [ "1" = "$has_window_display" ];then
+    is_window_floating=$(i3wm_is_window_floating "$wm_instance")
+
+    if [ "0" = "$is_window_floating" ];then
+        echo "window exists, but not floating focus it"
+        i3wm_focus_window "$wm_instance"
+    elif [ "0" = "$has_window_display" ];then
         echo "command term displays"
         i3wm_display_window "$wm_instance"
     else
         if [ "toggle" = "$mode" ]; then
-            echo "toggle command term display"
+            echo "command term displays(T)"
             i3wm_indisplay_window "$wm_instance"
         else
+            i3wm_focus_window "$wm_instance"
             echo "command term already display $has_window_display"
         fi
-
     fi
-
 else
     echo "command term launches..."
     nohup st -f \
