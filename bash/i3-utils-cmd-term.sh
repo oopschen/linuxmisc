@@ -39,7 +39,7 @@ function i3wm_has_window_display() {
 }
 
 function i3wm_display_window() {
-    i3-msg "[instance=\"(?i)$1\"] exec i3-move-position.sh cur-float-cmd-by-instance '(i?)$1' 60, resize set 40 ppt 90 ppt, scratchpad show"
+    i3-msg "[instance=\"(?i)$1\"] exec i3-move-position.sh cur-float-cmd-by-instance '(i?)$1' 49 64, resize set 50 ppt 35 ppt, scratchpad show"
 }
 
 function i3wm_indisplay_window() {

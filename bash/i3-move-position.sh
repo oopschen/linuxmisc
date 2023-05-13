@@ -7,6 +7,7 @@
 mode=$1
 criteria=$2
 left_offset_percentage=$3
+top_offset_percentage=$4
 msg=""
 
 pos_info=$(xrandr | grep primary | cut -d ' ' -f 4)
@@ -44,8 +45,8 @@ case $mode in
         ;;
 
     cur-float-cmd-by-instance)
-        dst_pos_x=$(python -c "import math;print(math.ceil($focused_pos_x+ $left_offset_percentage / 100.0 * $focused_pos_width))")
-        dst_pos_y=$(python -c "print($focused_pos_y + 5)")
+        dst_pos_x=$(python -c "import math;print(math.ceil($focused_pos_x + $left_offset_percentage / 100.0 * $focused_pos_width))")
+        dst_pos_y=$(python -c "import math;print($focused_pos_y + math.ceil($focused_pos_height * $top_offset_percentage / 100))")
         msg="[instance=\"$criteria\"] move position $dst_pos_x $dst_pos_y"
         ;;
 
