@@ -38,6 +38,23 @@ function i3wm_has_window_display() {
     echo "1"
 }
 
+### Get focus status for window 
+### @args ins i3wm instance selector
+### @ return 1 or 0
+function i3wm_is_window_focus() {
+    path_res=$(i3-msg -t get_tree | \
+        jq -c "path(..|.window_properties?|.instance?|select(.==\"$1\"))|.[:-2]")
+
+    if [ 0 -eq $? ] && [ ! -z "$path_res" ]; then
+        prop_val=$(i3-msg -t get_tree | jq "getpath($path_res) | .focused" | tr -d '"')
+        if [ "$prop_val" = "true" ]; then
+            echo "1"
+            return
+        fi
+    fi
+    echo "0"
+}
+
 function i3wm_display_window() {
     i3-msg "[instance=\"(?i)$1\"] exec i3-move-position.sh cur-float-cmd-by-instance '(i?)$1' 49 64, resize set 50 ppt 35 ppt, scratchpad show"
 }
@@ -73,10 +90,15 @@ function i3wm_focus_window() {
 # if has started: 
 #   if is not floating mode:
 #     focus
-#   elif it is seen by user:
-#       exit
+#   elif it is hidden:
+#     show it 
 #   else
-#       make it seen by user
+#     if it is not focus 
+#       move to current focus workspace
+#     elif is toggle mode
+#       toggle display
+#     else
+#       focus
 # else
 #   start it 
 #   make it seen by user
@@ -95,12 +117,17 @@ if [ "1" = "$has_prog_exists" ]; then
         echo "command term displays"
         i3wm_display_window "$wm_instance"
     else
-        if [ "toggle" = "$mode" ]; then
+        is_cmdterm_focus=$(i3wm_is_window_focus "$wm_instance")
+
+        if [  "0" = "$is_cmdterm_focus" ];then
+            echo "command term displays when on focus"
+            i3wm_display_window "$wm_instance"
+        elif [ "toggle" = "$mode" ]; then
             echo "command term displays(T)"
             i3wm_indisplay_window "$wm_instance"
         else
-            i3wm_focus_window "$wm_instance"
             echo "command term already display $has_window_display"
+            i3wm_focus_window "$wm_instance"
         fi
     fi
 else
