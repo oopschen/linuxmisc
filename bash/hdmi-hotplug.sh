@@ -16,12 +16,12 @@ mode="$1:none"
 if [[ ! -z "$hdmi_status" && ! -z "$edp_status" ]]; then
     case $mode in 
         mirror) 
-            $cmd_xrandr --output $hdmi_name --auto --primary \
+            $cmd_xrandr --output $hdmi_name --primary --auto \
                 --output $edp_name --auto --same-as $hdmi_name
             display_mode="$hdmi_name[*],$edp_name[*]"
             ;;
         *)
-            $cmd_xrandr --output $hdmi_name --auto --primary \
+            $cmd_xrandr --output $hdmi_name --primary --auto \
                 --output $edp_name --auto --left-of $hdmi_name
             display_mode="$hdmi_name[*],$edp_name"
             ;;
