@@ -1,8 +1,8 @@
 " plug manager
 call plug#begin('~/.vim/plugged')
 
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 "Plug 'altercation/vim-colors-solarized'
 "Plug 'morhetz/gruvbox'
 " since 2023/05/13
@@ -125,7 +125,7 @@ let g:EditorConfig_exclude_patterns = ['scp://.*']
 
 " auto pair
 let g:AutoPairsShortcutFastWrap = '<C-e>w'
-let g:AutoPairsShortcutToggle = '<C-e>a'
+let g:AutoPairsShortcutToggle = '<C-e>t'
 
 " pandoc
 let g:pandoc#folding#level = 4
