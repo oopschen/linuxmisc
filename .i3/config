@@ -178,6 +178,7 @@ bindsym $mod+b bar hidden_state toggle
 #bindsym $mod+m exec "i3-input -F 'mark %s' -l 4 -P 'Mark: '"
 #bindsym $mod+g exec "i3-input -F '[con_mark=%s] focus' -l 3 -P 'Go to: '"
 bindsym $mod+d exec "rofi -show combi"
+bindsym $mod+Tab exec "rofi -show window"
 bindsym --release $mod+Shift+p exec "scrot -s -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+u exec "scrot -u -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
 bindsym --release $mod+Shift+m exec "scrot -m -e 'test ! -d /tmp/scrot && mkdir /tmp/scrot; mv $f /tmp/scrot/; sxiv /tmp/scrot/$f' %Y-%m-%d-%H-%M-%S.jpeg"
@@ -286,7 +287,7 @@ bar {
     modifier none
     position bottom
     tray_output none
-    font pango:Source Code Pro 19px
+    font pango:Source Code Pro 12px
     workspace_buttons yes
     colors {
       background         #393E46
@@ -301,10 +302,15 @@ bar {
 
 ##### run after all config
 # auto startups
+#### systm service
 exec --no-startup-id dunst
 exec --no-startup-id libinput-gestures-setup autostart start
+exec --no-startup-id fcitx5 -r -d -s 2
+exec --no-startup-id netrp w
+exec --no-startup-id v2ray-nft T
+exec --no-startup-id hdmi-hotplug.sh
 
-exec --no-startup-id fcitx-autostart
+#### end 
 exec --no-startup-id google-chrome-stable
 exec --no-startup-id gtk-launch thunderbird-bin
 exec --no-startup-id i3-utils-cmd-term.sh

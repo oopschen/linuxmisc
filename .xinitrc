@@ -10,11 +10,5 @@ export GTK_IM_MODULE=fcitx
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 xsetroot -cursor_name left_ptr
 
-## auto set display
-hdmi-hotplug.sh
-## start netowrk
-netrp w
-v2ray-nft T
-
 machineid=$(cat /etc/machine-id)
 exec dbus-launch --auto-syntax --autolaunch=$machineid --exit-with-session i3
