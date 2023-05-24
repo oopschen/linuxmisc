@@ -1,9 +1,0 @@
-session_name: usb
-windows:
-- window_name: main
-  layout: tiled
-  start_directory: ~/usb
-  panes:
-    - 
-      focus: true
-    -  
