@@ -149,4 +149,4 @@ configuration {
       sorting-method:    "name";
   }
 }
-@theme "Monokai"
+@theme "rounded-nord-dark"

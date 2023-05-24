@@ -235,6 +235,7 @@ for_window [class="(?i)com.alibabainc.dingtalk" title="(?i).*(分享|预览|.doc
 ### dia window settings: 1. float toolbox_window & dia ,set size to 800x200
 for_window [class="(?i)dia" window_role="toolbox_window"] floating enable,resize set 10 ppt 60 ppt
 
+
 ## w1 web: chrome
 assign [class="(?i)google-chrome"] 1
 assign [class="(?i)browser"] 1
@@ -309,6 +310,7 @@ exec --no-startup-id fcitx5 -r -d -s 2
 exec --no-startup-id netrp w
 exec --no-startup-id v2ray-nft T
 exec --no-startup-id hdmi-hotplug.sh
+exec --no-startup-id picom -b
 
 #### end 
 exec --no-startup-id google-chrome-stable
