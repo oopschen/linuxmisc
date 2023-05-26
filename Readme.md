@@ -1,22 +1,12 @@
-[sourceCodePro]: https://github.com/adobe-fonts/source-code-pro "Source Code Pro Website"
-[gitcomplete]: https://github.com/git/git/tree/master/contrib/completion "Git Complete Scripts"
-### Linux Desktop  
-此项目主要包含了一些linux使用的配置文件, 方面装机的时候使用.  
-  
-### Prerequirement  
-* xft  
-* xsetroot
-* [git complete scripts][gitcomplete]
-#### i3
-* dmenu
-* i3status
-  
-### 字体  
-[SourceCodePro][sourceCodePro]  
-  
-### 配置文件  
-* tmux  
-* vim  
-* Xresource  
-* xinit
-* Xmonad/i3
+# Linux Misc
+此项目主要包含了一些linux使用的配置文件和不可分类的杂项。
+
+## etc
+
+/etc目录文件。
+
+##  devel
+开发相关配置文件。
+
+## container
+容器相关脚本和文件。
