@@ -1,0 +1,5 @@
+Cmnd_Alias    SYSSERVICE = /sbin/rc-service, /sbin/iptables, /bin/ip, /usr/bin/wpa_cli, /usr/sbin/ipset, /sbin/nft, /usr/bin/emerge, /sbin/shutdown, /sbin/reboot
+Cmnd_Alias    IOCMD = /bin/mount, /bin/umount, /bin/ls
+Cmnd_Alias    DEVTOOL = /usr/bin/minicom, /usr/bin/nmap
+
+work ALL=(ALL) NOPASSWD: SYSSERVICE, IOCMD, DEVTOOL
