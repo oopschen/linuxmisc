@@ -11,6 +11,8 @@ scriptdir=$(realpath $(dirname $0))
 
 # udev rule
 ln -sv $scriptdir/etc/udev/*.rules /etc/udev/rules.d/
+## hdmi change callback script for udev
+ln -sv $scriptdir/root/.bin /root/
 # sudo 
 cp -r $scriptdir/etc/sudoers.d /etc/
 chown -R root:root /etc/sudoers.d
@@ -37,3 +39,4 @@ ln -sv $homebase/.config/nftables.d /etc/
 if [ -z "$(grep 'nohook' /etc/dhcpcd.conf)" ];then
     echo "nohook resolv.conf, wpa_supplicant" >> /etc/dhcpcd.conf
 fi
+

@@ -1,9 +1,9 @@
 SUBSYSTEM!="net", GOTO="net_network_naming_end"
 
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="00:e1:99:00:b8:25", NAME="eth0"
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="20:7b:d2:69:8a:cf", NAME="eth0"
-SUBSYSTEM=="net", ACTION=="add", ATTR{address}=="80:b6:55:3e:98:2e", NAME="wlan0"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="enp*", NAME="eth%n"
-SUBSYSTEM=="net", ACTION=="add", KERNELS=="wlp*", NAME="wlan%n"
+SUBSYSTEMS=="net", ACTION=="add", KERNEL=="wl*", NAME="wlan%n", GOTO="net_network_naming_end"
+SUBSYSTEMS=="net", ACTION=="add", KERNEL=="en*", NAME="eth%n", GOTO="net_network_naming_end"
+
+SUBSYSTEMS=="usb", ACTION=="add", KERNEL=="eth*", NAME="eth%n", GOTO="net_network_naming_end"
+
 
 LABEL="net_network_naming_end"
