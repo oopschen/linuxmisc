@@ -14,7 +14,6 @@ case "$1" in
   # brightnessdown
   *)
     val=$(echo "a=${curbrightness} - ${step};if (a<0) {a = ${step}};a" | bc)
-    cat ${brdir}/brightness
     echo $val > ${brdir}/brightness
     ;;
 esac
