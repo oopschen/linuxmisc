@@ -21,12 +21,6 @@ case "$group" in
 				/etc/acpi/actions/powerbtn.sh
 				;;
 
-			video)
-				case "$action" in
-					brightnessup|brightnessdown) /etc/acpi/actions/video.sh $action ;;
-					*)	log_unhandled $value;;
-				esac
-				;;
 
 			mute|volumeup|volumedown) /etc/acpi/actions/volume.sh $action;;
 
@@ -65,6 +59,13 @@ case "$group" in
 			*)	log_unhandled $* ;;
 		esac
 		;;
+
+    video)
+        case "$action" in
+            brightnessup|brightnessdown) /etc/acpi/actions/video.sh $action ;;
+            *)	log_unhandled $value;;
+        esac
+        ;;
 
 	*)	log_unhandled $* ;;
 esac
