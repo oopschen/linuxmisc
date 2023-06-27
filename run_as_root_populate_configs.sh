@@ -38,5 +38,6 @@ ln -sv $homebase/.config/nftables.d /etc/
 # dhcp
 if [ -z "$(grep 'nohook' /etc/dhcpcd.conf)" ];then
     echo "nohook resolv.conf, wpa_supplicant" >> /etc/dhcpcd.conf
+    echo "timeout 10" >> /etc/dhcpcd.conf
 fi
 
