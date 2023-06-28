@@ -1,1 +1,1 @@
-SUBSYSTEM=="backlight", ACTION=="add", RUN+="/bin/chmod o+w /sys/class/backlight/intel_backlight/brightness"
+SUBSYSTEM=="backlight", ACTION=="add", RUN+="/bin/chmod o+w /sys/class/backlight/intel_backlight/brightness", RUN+="echo \"$(echo "$(cat /sys/class/backlight/intel_backlight/max_brightness) * 85 / 100 " | bc)\" > /sys/class/backlight/intel_backlight/brightness"

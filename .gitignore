@@ -1,3 +1,6 @@
 bash/.*
 .i3/*.png
 __pycache__/
+etc/dnsmasq.d/server-pri.conf
+.*.swp
+.*.swo
