@@ -32,7 +32,6 @@ case "$group" in
 			#lid)
 			#	xset dpms force off
 			#	;;
-			*)	log_unhandled $* ;;
 		esac
 		;;
 
