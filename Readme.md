@@ -23,3 +23,12 @@
 1. 根据/world文件安装系统程序
 1. 同步原有home文件：rsync -avHXU xxxx /home
 1. 调整nvidia/iwlwifi等模块参数
+1. [调整rc参数](#rc-param)
+
+
+### rc参数调整
+<a id="rc-param"></a>
+```
+rc_cgroup_controllers="cpuset cpu io memory hugetlb pids rdma misc"
+rc_cgroup_mode="unified"
+```
