@@ -29,6 +29,7 @@ ln -sv $scriptdir/etc/acpi/actions/*.sh /etc/acpi/actions/
 ln -sv $scriptdir/etc/dnsmasq.d /etc/
 ln -sv $homebase/.config/.private.server.conf /etc/dnsmasq.d/server-pri.conf
 ln -sv $scriptdir/etc/resolv.dnsmasq.conf /etc/
+ln -sv $scriptdir/etc/resolv.conf.head /etc/
 sed -r -i.rootp.bak 's@^#(conf-dir.+\.d/,\*.conf$)@\1@ig;s@^#(resolv-file=)$@\1/etc/resolv.dnsmasq.conf@ig' /etc/dnsmasq.conf
 # v2ray
 rm /etc/v2ray/config.json
