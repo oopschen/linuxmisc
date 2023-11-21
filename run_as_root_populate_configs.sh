@@ -41,7 +41,7 @@ ln -sv $scriptdir/etc/resolvconf.conf /etc/
 ### 1. include /etc/dnsmasq.d/
 ### 2. resolv /etc/dnsmasq-resolv.conf
 ### 3. enable filterwin2k to filter soa record in 114 dns
-sed -r -i.rootp.bak 's@^#(conf-dir.+\.d/,\*.conf$)@\1@ig;s@^#(resolv-file=)$@\1/etc/dnsmasq-resolv.conf@ig;s@^#(filterwin2k)@\1@ig;' /etc/dnsmasq.conf
+sed -r -i.rootp.bak 's@^#(conf-dir.+\.d/,\*.conf$)@\1@ig;s@^#(resolv-file=)$@\1/etc/dnsmasq-resolv.conf@ig;' /etc/dnsmasq.conf
 
 # v2ray
 rm /etc/v2ray/config.json
