@@ -21,10 +21,6 @@ case "$group" in
 				/etc/acpi/actions/powerbtn.sh
 				;;
 
-
-			mute|volumeup|volumedown) /etc/acpi/actions/volume.sh $action;;
-
-
 			# if your laptop doesnt turn on/off the display via hardware
 			# switch and instead just generates an acpi event, you can force
 			# X to turn off the display via dpms.  note you will have to run
