@@ -1,8 +1,7 @@
 SUBSYSTEM!="net", GOTO="net_network_naming_end"
 
 SUBSYSTEMS=="net", ACTION=="add", KERNEL=="wl*", NAME="wlan%n", GOTO="net_network_naming_end"
-SUBSYSTEMS=="net", ACTION=="add", KERNEL=="en*", NAME="eth%n", GOTO="net_network_naming_end"
-
+SUBSYSTEMS=="net", ACTION=="add", KERNEL=="enp*|rndis*|usb*", NAME="eth%n", GOTO="net_network_naming_end"
 SUBSYSTEMS=="usb", ACTION=="add", KERNEL=="eth*", NAME="eth%n", GOTO="net_network_naming_end"
 
 

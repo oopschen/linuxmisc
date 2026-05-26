@@ -42,9 +42,9 @@ ln -sv $scriptdir/etc/resolvconf.conf /etc/
 ### 2. resolv /etc/dnsmasq-resolv.conf
 sed -r -i.rootp.bak 's@^#(conf-dir.+\.d/,\*.conf$)@\1@ig;s@^#(resolv-file=)$@\1/etc/dnsmasq-resolv.conf@ig;' /etc/dnsmasq.conf
 
-# v2ray
-rm /etc/v2ray/config.json
-ln -sv $homebase/.config/v2ray/config.json /etc/v2ray/
+# v2ray use hysteria instead
+#rm /etc/v2ray/config.json
+#ln -sv $homebase/.config/v2ray/config.json /etc/v2ray/
 
 # nftables
 ln -sv $homebase/.config/nftables.d /etc/
