@@ -3,4 +3,4 @@ tmpfs   /run   tmpfs   rw,nosuid,nodev,size=300M   0   0
 tmpfs /tmp tmpfs defaults,noatime,mode=1777,size=512m 0 0
 UUID=?		/boot		vfat 		noauto,noatime	1 2
 UUID=?		none		swap		sw		0 0
-tmpfs /home/work/DownloadsTemp tmpfs defaults,noatime,mode=0755,size=512m,uid=1000,gid=1000 0 0
+tmpfs /home/work/Downloads/01TempFS tmpfs defaults,noatime,mode=0755,size=512m,uid=1000,gid=1000 0 0
